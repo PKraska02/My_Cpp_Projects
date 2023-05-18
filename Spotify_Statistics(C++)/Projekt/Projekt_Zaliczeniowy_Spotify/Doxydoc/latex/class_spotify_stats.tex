@@ -1,0 +1,348 @@
+\hypertarget{class_spotify_stats}{}\doxysection{Spotify\+Stats Class Reference}
+\label{class_spotify_stats}\index{SpotifyStats@{SpotifyStats}}
+
+
+Klasa zawierajaca typy parametrow\+:  
+
+
+
+
+{\ttfamily \#include $<$Stat\+Spotify.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_spotify_stats_a13abc35d1917dcedbeba6f4b7524157e}{Readfile}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist, std\+::string \&fl)
+\begin{DoxyCompactList}\small\item\em Funkcja odczytujaca z pliku bazy danych parametry piosenek. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_spotify_stats_af5e4ee3f976e0ed972f8aa78015764ac}{Save\+Data\+To\+File}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist, std\+::string \&fl)
+\begin{DoxyCompactList}\small\item\em Funkcja zapisujaca do pliku bazy danych. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_spotify_stats_a971c2c1884d990772ff87047e5dfeea9}{Generate\+Report}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist, std\+::string \&fl, std\+::string \&reg)
+\begin{DoxyCompactList}\small\item\em Funkcja generujaca raport ze statystykami piosenek. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, int $>$ $>$ \mbox{\hyperlink{class_spotify_stats_a7dfa267be1731d78881a371c8cbe2d7a}{Most\+Popular\+Artist}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist)
+\begin{DoxyCompactList}\small\item\em Funkcja wyznaczajaca najpopularniejszego artyste. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, int $>$ $>$ \mbox{\hyperlink{class_spotify_stats_a199286e60f720274938ca17b8e1bdd6d}{Least\+Popular\+Artist}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist)
+\begin{DoxyCompactList}\small\item\em Funkcja wyznaczajaca najmniej popularnego artyste. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \mbox{\hyperlink{class_spotify_stats_abcefb6674debe5345962e394c409148a}{Most\+Popular\+Song}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist)
+\begin{DoxyCompactList}\small\item\em Funkcja wyznaczajaca najpopularniejsza piosenke. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \mbox{\hyperlink{class_spotify_stats_a496481ae47587870efc9de7348221238}{Least\+Popular\+Song}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist)
+\begin{DoxyCompactList}\small\item\em Funkcja wyznaczajaca najmniej popularna piosenke. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \mbox{\hyperlink{class_spotify_stats_a2c80ba26b6ef5b99588aadb356c7b065}{Artist\+Sorter}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist)
+\begin{DoxyCompactList}\small\item\em Funkcja sortujaca Artystow wzgledem odsluchan ich piosenek. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_spotify_stats_a616987f7267b882566d957b38c5b86c2}{Arithmetic\+Mean\+Of\+Listens}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist)
+\begin{DoxyCompactList}\small\item\em Funkcja wyznaczajaca srednia arytmetyczna odsluchan. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_spotify_stats_a4d206c0ba41ceef2342e560a7d112503}{Spearman\+Korelation}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist)
+\begin{DoxyCompactList}\small\item\em Funkcja wyznaczajaca wspolczynniki korelacji rang Spearmana miedzy regionem a iloscia odsluchan. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_spotify_stats_a06db424c1ee283b0f9d265b108d84313}\label{class_spotify_stats_a06db424c1ee283b0f9d265b108d84313}} 
+std\+::string {\bfseries Author\+\_\+name}
+\item 
+\mbox{\Hypertarget{class_spotify_stats_a80f2b682e98cfa50b1d93f5432348790}\label{class_spotify_stats_a80f2b682e98cfa50b1d93f5432348790}} 
+std\+::string {\bfseries Author\+\_\+lastname}
+\item 
+\mbox{\Hypertarget{class_spotify_stats_aef132d9559a14ff25c0e2fdd19a749f4}\label{class_spotify_stats_aef132d9559a14ff25c0e2fdd19a749f4}} 
+std\+::string {\bfseries Title}
+\item 
+\mbox{\Hypertarget{class_spotify_stats_ac9d8b3ba1046a2f511b659ce60aed8d4}\label{class_spotify_stats_ac9d8b3ba1046a2f511b659ce60aed8d4}} 
+std\+::string {\bfseries Continent}
+\item 
+\mbox{\Hypertarget{class_spotify_stats_a1f41fd0737ad956d201872ef073c7ac5}\label{class_spotify_stats_a1f41fd0737ad956d201872ef073c7ac5}} 
+int {\bfseries playscount} = 0
+\item 
+\mbox{\Hypertarget{class_spotify_stats_aa67b11d3906b067190e1bc6a99257e95}\label{class_spotify_stats_aa67b11d3906b067190e1bc6a99257e95}} 
+double {\bfseries Songtime} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_spotify_stats_ac830e83c9f09b3ccc8a9964058714ddd}{Raports\+Generator\+Interface}} (std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&spotifystatslist)
+\begin{DoxyCompactList}\small\item\em Funkcja interfejsu wyswietlajaca nam opcje generowania raportow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa zawierajaca typy parametrow\+: 
+
+\begin{DoxyCopyright}{Copyright}
+Copyrigth 2023 Piotr Kraska 
+\end{DoxyCopyright}
+
+\begin{DoxyParams}{Parameters}
+{\em Author\+\_\+name} & Imie Autora. \\
+\hline
+{\em Author\+\_\+lastname} & Nazwisko Autora. Author\+\_\+name i Author\+\_\+last name sa rowniez uzywane do zapisu pseudonimow artystycznych. \\
+\hline
+{\em Title} & Nazwa utworu \\
+\hline
+{\em Continent} & Region swiata. \\
+\hline
+{\em playscount} & Ilosc odsluchan \\
+\hline
+{\em Songtime} & Dlugosc piosenki \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_spotify_stats_a616987f7267b882566d957b38c5b86c2}\label{class_spotify_stats_a616987f7267b882566d957b38c5b86c2}} 
+\index{SpotifyStats@{SpotifyStats}!ArithmeticMeanOfListens@{ArithmeticMeanOfListens}}
+\index{ArithmeticMeanOfListens@{ArithmeticMeanOfListens}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{ArithmeticMeanOfListens()}{ArithmeticMeanOfListens()}}
+{\footnotesize\ttfamily int Spotify\+Stats\+::\+Arithmetic\+Mean\+Of\+Listens (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist }\end{DoxyParamCaption})}
+
+
+
+Funkcja wyznaczajaca srednia arytmetyczna odsluchan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista piosenek. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wartosc sredniej arytmetycznej. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spotify_stats_a616987f7267b882566d957b38c5b86c2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_spotify_stats_a2c80ba26b6ef5b99588aadb356c7b065}\label{class_spotify_stats_a2c80ba26b6ef5b99588aadb356c7b065}} 
+\index{SpotifyStats@{SpotifyStats}!ArtistSorter@{ArtistSorter}}
+\index{ArtistSorter@{ArtistSorter}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{ArtistSorter()}{ArtistSorter()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ Spotify\+Stats\+::\+Artist\+Sorter (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist }\end{DoxyParamCaption})}
+
+
+
+Funkcja sortujaca Artystow wzgledem odsluchan ich piosenek. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista piosenek. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Posortowana liste piosenek. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spotify_stats_a2c80ba26b6ef5b99588aadb356c7b065_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_spotify_stats_a971c2c1884d990772ff87047e5dfeea9}\label{class_spotify_stats_a971c2c1884d990772ff87047e5dfeea9}} 
+\index{SpotifyStats@{SpotifyStats}!GenerateReport@{GenerateReport}}
+\index{GenerateReport@{GenerateReport}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{GenerateReport()}{GenerateReport()}}
+{\footnotesize\ttfamily void Spotify\+Stats\+::\+Generate\+Report (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist,  }\item[{std\+::string \&}]{fl,  }\item[{std\+::string \&}]{reg }\end{DoxyParamCaption})}
+
+
+
+Funkcja generujaca raport ze statystykami piosenek. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & lista piosenek. \\
+\hline
+{\em fl} & Sciezka do pliku. \\
+\hline
+{\em reg} & Region z ktorego chcemy wygenerowac raport. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spotify_stats_a971c2c1884d990772ff87047e5dfeea9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_spotify_stats_a199286e60f720274938ca17b8e1bdd6d}\label{class_spotify_stats_a199286e60f720274938ca17b8e1bdd6d}} 
+\index{SpotifyStats@{SpotifyStats}!LeastPopularArtist@{LeastPopularArtist}}
+\index{LeastPopularArtist@{LeastPopularArtist}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{LeastPopularArtist()}{LeastPopularArtist()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, int $>$ $>$ Spotify\+Stats\+::\+Least\+Popular\+Artist (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist }\end{DoxyParamCaption})}
+
+
+
+Funkcja wyznaczajaca najmniej popularnego artyste. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & lista piosenek. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wektor par imienia i nazwiska autora oraz sumy wyswietlen. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spotify_stats_a199286e60f720274938ca17b8e1bdd6d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_spotify_stats_a496481ae47587870efc9de7348221238}\label{class_spotify_stats_a496481ae47587870efc9de7348221238}} 
+\index{SpotifyStats@{SpotifyStats}!LeastPopularSong@{LeastPopularSong}}
+\index{LeastPopularSong@{LeastPopularSong}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{LeastPopularSong()}{LeastPopularSong()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ Spotify\+Stats\+::\+Least\+Popular\+Song (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist }\end{DoxyParamCaption})}
+
+
+
+Funkcja wyznaczajaca najmniej popularna piosenke. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista piosenek. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wektor zawierajacy dane o Autorze najmniej popularniej piosenki. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spotify_stats_a496481ae47587870efc9de7348221238_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_spotify_stats_a7dfa267be1731d78881a371c8cbe2d7a}\label{class_spotify_stats_a7dfa267be1731d78881a371c8cbe2d7a}} 
+\index{SpotifyStats@{SpotifyStats}!MostPopularArtist@{MostPopularArtist}}
+\index{MostPopularArtist@{MostPopularArtist}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{MostPopularArtist()}{MostPopularArtist()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, int $>$ $>$ Spotify\+Stats\+::\+Most\+Popular\+Artist (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist }\end{DoxyParamCaption})}
+
+
+
+Funkcja wyznaczajaca najpopularniejszego artyste. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista piosenek. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wektor par imienia i nazwiska autora oraz sumy wyswietlen. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spotify_stats_a7dfa267be1731d78881a371c8cbe2d7a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_spotify_stats_abcefb6674debe5345962e394c409148a}\label{class_spotify_stats_abcefb6674debe5345962e394c409148a}} 
+\index{SpotifyStats@{SpotifyStats}!MostPopularSong@{MostPopularSong}}
+\index{MostPopularSong@{MostPopularSong}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{MostPopularSong()}{MostPopularSong()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ Spotify\+Stats\+::\+Most\+Popular\+Song (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist }\end{DoxyParamCaption})}
+
+
+
+Funkcja wyznaczajaca najpopularniejsza piosenke. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista piosenek. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wektor zawierajacy dane o Autorze najpopularniejszej piosenki. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spotify_stats_abcefb6674debe5345962e394c409148a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_spotify_stats_a13abc35d1917dcedbeba6f4b7524157e}\label{class_spotify_stats_a13abc35d1917dcedbeba6f4b7524157e}} 
+\index{SpotifyStats@{SpotifyStats}!Readfile@{Readfile}}
+\index{Readfile@{Readfile}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{Readfile()}{Readfile()}}
+{\footnotesize\ttfamily bool Spotify\+Stats\+::\+Readfile (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist,  }\item[{std\+::string \&}]{fl }\end{DoxyParamCaption})}
+
+
+
+Funkcja odczytujaca z pliku bazy danych parametry piosenek. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista z parametrami. \\
+\hline
+{\em fl} & Sciezka do pliku bazy danych. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True jesli wszystko zadziala poprawnie, false gdy cos pojdzie nie tak 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_spotify_stats_af5e4ee3f976e0ed972f8aa78015764ac}\label{class_spotify_stats_af5e4ee3f976e0ed972f8aa78015764ac}} 
+\index{SpotifyStats@{SpotifyStats}!SaveDataToFile@{SaveDataToFile}}
+\index{SaveDataToFile@{SaveDataToFile}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{SaveDataToFile()}{SaveDataToFile()}}
+{\footnotesize\ttfamily void Spotify\+Stats\+::\+Save\+Data\+To\+File (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist,  }\item[{std\+::string \&}]{fl }\end{DoxyParamCaption})}
+
+
+
+Funkcja zapisujaca do pliku bazy danych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista z parametrami. \\
+\hline
+{\em fl} & Sciezka do pliku. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_spotify_stats_a4d206c0ba41ceef2342e560a7d112503}\label{class_spotify_stats_a4d206c0ba41ceef2342e560a7d112503}} 
+\index{SpotifyStats@{SpotifyStats}!SpearmanKorelation@{SpearmanKorelation}}
+\index{SpearmanKorelation@{SpearmanKorelation}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{SpearmanKorelation()}{SpearmanKorelation()}}
+{\footnotesize\ttfamily double Spotify\+Stats\+::\+Spearman\+Korelation (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist }\end{DoxyParamCaption})}
+
+
+
+Funkcja wyznaczajaca wspolczynniki korelacji rang Spearmana miedzy regionem a iloscia odsluchan. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista piosenek. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wartosc wspolczynnika korelacji. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spotify_stats_a4d206c0ba41ceef2342e560a7d112503_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_spotify_stats_ac830e83c9f09b3ccc8a9964058714ddd}\label{class_spotify_stats_ac830e83c9f09b3ccc8a9964058714ddd}} 
+\index{SpotifyStats@{SpotifyStats}!RaportsGeneratorInterface@{RaportsGeneratorInterface}}
+\index{RaportsGeneratorInterface@{RaportsGeneratorInterface}!SpotifyStats@{SpotifyStats}}
+\doxysubsubsection{\texorpdfstring{RaportsGeneratorInterface}{RaportsGeneratorInterface}}
+{\footnotesize\ttfamily void Raports\+Generator\+Interface (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_spotify_stats}{Spotify\+Stats}} $>$ \&}]{spotifystatslist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Funkcja interfejsu wyswietlajaca nam opcje generowania raportow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spotifystatslist} & Lista piosenek. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Projekt\+\_\+\+Zaliczeniowy\+\_\+\+Spotify/\mbox{\hyperlink{_stat_spotify_8h}{Stat\+Spotify.\+h}}\item 
+Projekt\+\_\+\+Zaliczeniowy\+\_\+\+Spotify/Stat\+Spotify.\+cpp\end{DoxyCompactItemize}

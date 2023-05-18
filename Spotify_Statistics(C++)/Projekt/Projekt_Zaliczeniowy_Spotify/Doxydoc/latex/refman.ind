@@ -1,0 +1,58 @@
+\begin{theindex}
+
+  \item {ArithmeticMeanOfListens}
+    \subitem {SpotifyStats}, \hyperpage{6}
+  \item {ArtistSorter}
+    \subitem {SpotifyStats}, \hyperpage{7}
+
+  \indexspace
+
+  \item {GenerateReport}
+    \subitem {SpotifyStats}, \hyperpage{7}
+
+  \indexspace
+
+  \item {LeastPopularArtist}
+    \subitem {SpotifyStats}, \hyperpage{9}
+  \item {LeastPopularSong}
+    \subitem {SpotifyStats}, \hyperpage{10}
+
+  \indexspace
+
+  \item {MostPopularArtist}
+    \subitem {SpotifyStats}, \hyperpage{10}
+  \item {MostPopularSong}
+    \subitem {SpotifyStats}, \hyperpage{11}
+
+  \indexspace
+
+  \item {Projekt\_Zaliczeniowy\_Spotify/StatSpotify.h}, 
+		\hyperpage{15, 16}
+
+  \indexspace
+
+  \item {RaportsGeneratorInterface}
+    \subitem {SpotifyStats}, \hyperpage{13}
+  \item {Readfile}
+    \subitem {SpotifyStats}, \hyperpage{11}
+
+  \indexspace
+
+  \item {SaveDataToFile}
+    \subitem {SpotifyStats}, \hyperpage{12}
+  \item {SpearmanKorelation}
+    \subitem {SpotifyStats}, \hyperpage{12}
+  \item {SpotifyStats}, \hyperpage{5}
+    \subitem {ArithmeticMeanOfListens}, \hyperpage{6}
+    \subitem {ArtistSorter}, \hyperpage{7}
+    \subitem {GenerateReport}, \hyperpage{7}
+    \subitem {LeastPopularArtist}, \hyperpage{9}
+    \subitem {LeastPopularSong}, \hyperpage{10}
+    \subitem {MostPopularArtist}, \hyperpage{10}
+    \subitem {MostPopularSong}, \hyperpage{11}
+    \subitem {RaportsGeneratorInterface}, \hyperpage{13}
+    \subitem {Readfile}, \hyperpage{11}
+    \subitem {SaveDataToFile}, \hyperpage{12}
+    \subitem {SpearmanKorelation}, \hyperpage{12}
+
+\end{theindex}

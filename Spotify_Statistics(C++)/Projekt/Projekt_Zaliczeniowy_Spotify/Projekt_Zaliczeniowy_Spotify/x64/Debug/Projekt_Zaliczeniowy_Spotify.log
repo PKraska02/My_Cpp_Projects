@@ -1,0 +1,12 @@
+﻿  Main_StatSpotify.cpp
+C:\Users\Piotr\source\repos\10266093-gr21-repo\Projekt\Projekt_Zaliczeniowy_Spotify\Projekt_Zaliczeniowy_Spotify\Main_StatSpotify.cpp(16,8): warning C4101: "y": lokalna zmienna, do której nie istnieje odwołanie
+  StatSpotify.cpp
+C:\Users\Piotr\source\repos\10266093-gr21-repo\Projekt\Projekt_Zaliczeniowy_Spotify\Projekt_Zaliczeniowy_Spotify\StatSpotify.cpp(406,39): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+C:\Users\Piotr\source\repos\10266093-gr21-repo\Projekt\Projekt_Zaliczeniowy_Spotify\Projekt_Zaliczeniowy_Spotify\StatSpotify.cpp(516,15): warning C4244: "inicjowanie": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Piotr\source\repos\10266093-gr21-repo\Projekt\Projekt_Zaliczeniowy_Spotify\Projekt_Zaliczeniowy_Spotify\StatSpotify.cpp(538,21): warning C4244: "argument": konwersja z "double" do "_Ty", możliwa utrata danych
+          with
+          [
+              _Ty=int
+          ]
+  Generowanie kodu...
+  Projekt_Zaliczeniowy_Spotify.vcxproj -> C:\Users\Piotr\source\repos\10266093-gr21-repo\Projekt\Projekt_Zaliczeniowy_Spotify\x64\Debug\Projekt_Zaliczeniowy_Spotify.exe

@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\piotr\\source\\repos\\f03fc1e6-gr21-repo\\projekt\\space_invaders\\space_invaders\\game.ixx",
+        "ProvidedModule": "Game",
+        "ImportedModules": [
+            "Player"
+        ],
+        "ImportedHeaderUnits": [
+            "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.35.32215\\include\\iostream"
+        ]
+    }
+}

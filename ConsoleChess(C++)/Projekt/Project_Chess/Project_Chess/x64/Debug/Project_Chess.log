@@ -1,0 +1,15 @@
+﻿  Bishop.cpp
+  Chess.cpp
+  ChessMain.cpp
+  Chessboard.cpp
+  Chesstranslator.cpp
+  King.cpp
+  Knight.cpp
+  Pawn.cpp
+  Queen.cpp
+  Rook.cpp
+  Generowanie kodu...
+C:\Users\Piotr\source\repos\51243f41-gr25-repo\Projekt\Project_Chess\Project_Chess\Rook.cpp(81): warning C4715: "Rook::ShortRosch”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\Piotr\source\repos\51243f41-gr25-repo\Projekt\Project_Chess\Project_Chess\Rook.cpp(43): warning C4715: "Rook::LongRosch”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\Piotr\source\repos\51243f41-gr25-repo\Projekt\Project_Chess\Project_Chess\Queen.cpp(82): warning C4715: "Queen::CanMovediagonal”: niewszystkie ścieżki kodu zwracają wartość
+  Project_Chess.vcxproj -> C:\Users\Piotr\source\repos\51243f41-gr25-repo\Projekt\Project_Chess\x64\Debug\Project_Chess.exe

@@ -1,0 +1,4 @@
+<map id="SpotifyStats::LeastPopularArtist" name="SpotifyStats::LeastPopularArtist">
+<area shape="rect" id="node1" title="Funkcja wyznaczajaca najmniej popularnego artyste." alt="" coords="245,5,423,47"/>
+<area shape="rect" id="node2" href="$class_spotify_stats.html#a971c2c1884d990772ff87047e5dfeea9" title="Funkcja generujaca raport ze statystykami piosenek." alt="" coords="5,13,197,39"/>
+</map>

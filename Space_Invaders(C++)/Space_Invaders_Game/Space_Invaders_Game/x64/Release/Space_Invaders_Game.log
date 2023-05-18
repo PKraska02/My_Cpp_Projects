@@ -1,0 +1,8 @@
+﻿  Trwa skanowanie źródeł pod kątem zależności modułów...
+  Trwa kompilowanie…
+  Game.ixx
+C:\Users\Piotr\source\repos\f03fc1e6-gr21-repo\Projekt\Space_Invaders\Space_Invaders\Game.ixx(6,14): error C2230: nie można znaleźć modułu „Player”
+C:\Users\Piotr\source\repos\f03fc1e6-gr21-repo\Projekt\Space_Invaders\Space_Invaders\Game.ixx(7,19): warning C5201: deklaracja modułu może występować tylko na początku jednostki translacji, chyba że zostanie użyty fragment modułu globalnego
+C:\Users\Piotr\source\repos\f03fc1e6-gr21-repo\Projekt\Space_Invaders\Space_Invaders\Game.ixx(15,13): error C2143: błąd składniowy: brakuje „;” przed „*”
+C:\Users\Piotr\source\repos\f03fc1e6-gr21-repo\Projekt\Space_Invaders\Space_Invaders\Game.ixx(15,13): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
+C:\Users\Piotr\source\repos\f03fc1e6-gr21-repo\Projekt\Space_Invaders\Space_Invaders\Game.ixx(15,21): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";"

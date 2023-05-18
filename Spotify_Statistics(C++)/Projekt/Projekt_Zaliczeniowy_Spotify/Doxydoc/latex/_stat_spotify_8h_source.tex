@@ -1,0 +1,33 @@
+\hypertarget{_stat_spotify_8h_source}{}\doxysection{Stat\+Spotify.\+h}
+\label{_stat_spotify_8h_source}\index{Projekt\_Zaliczeniowy\_Spotify/StatSpotify.h@{Projekt\_Zaliczeniowy\_Spotify/StatSpotify.h}}
+\mbox{\hyperlink{_stat_spotify_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_spotify_stats}{SpotifyStats}} \{}
+\DoxyCodeLine{18     std::string Author\_name;}
+\DoxyCodeLine{19     std::string Author\_lastname;}
+\DoxyCodeLine{20     std::string Title;}
+\DoxyCodeLine{21     std::string Continent;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} playscount = 0;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} Songtime = 0;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spotify_stats_a13abc35d1917dcedbeba6f4b7524157e}{Readfile}}(std::list<SpotifyStats> \&spotifystatslist,std::string \&fl);}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spotify_stats_af5e4ee3f976e0ed972f8aa78015764ac}{SaveDataToFile}}(std::list<SpotifyStats>\& spotifystatslist,std::string \&fl);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spotify_stats_a971c2c1884d990772ff87047e5dfeea9}{GenerateReport}}(std::list<SpotifyStats>\& spotifystatslist, std::string\& fl, std::string\& reg);}
+\DoxyCodeLine{43     std::vector<std::pair<std::string, int>> \mbox{\hyperlink{class_spotify_stats_a7dfa267be1731d78881a371c8cbe2d7a}{MostPopularArtist}}(std::list<SpotifyStats>\& spotifystatslist);}
+\DoxyCodeLine{47     std::vector<std::pair<std::string, int>> \mbox{\hyperlink{class_spotify_stats_a199286e60f720274938ca17b8e1bdd6d}{LeastPopularArtist}}(std::list<SpotifyStats>\& spotifystatslist);}
+\DoxyCodeLine{51     std::vector<SpotifyStats> \mbox{\hyperlink{class_spotify_stats_abcefb6674debe5345962e394c409148a}{MostPopularSong}}(std::list<SpotifyStats>\& spotifystatslist);}
+\DoxyCodeLine{55     std::vector<SpotifyStats> \mbox{\hyperlink{class_spotify_stats_a496481ae47587870efc9de7348221238}{LeastPopularSong}}(std::list<SpotifyStats>\& spotifystatslist);}
+\DoxyCodeLine{59     std::list<SpotifyStats> \mbox{\hyperlink{class_spotify_stats_a2c80ba26b6ef5b99588aadb356c7b065}{ArtistSorter}}(std::list<SpotifyStats>\& spotifystatslist);}
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spotify_stats_a616987f7267b882566d957b38c5b86c2}{ArithmeticMeanOfListens}}(std::list<SpotifyStats>\& spotifystatslist);}
+\DoxyCodeLine{67     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_spotify_stats_a4d206c0ba41ceef2342e560a7d112503}{SpearmanKorelation}}(std::list<SpotifyStats>\& spotifystatslist);}
+\DoxyCodeLine{70     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spotify_stats_ac830e83c9f09b3ccc8a9964058714ddd}{RaportsGeneratorInterface}}(std::list<SpotifyStats>\& spotifystatslist);}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{73 \textcolor{keywordtype}{void} \mbox{\hyperlink{_stat_spotify_8h_a54d17a6d0bb758f26b9dda4c6d8e8da8}{Help}}();}
+
+\end{DoxyCode}
