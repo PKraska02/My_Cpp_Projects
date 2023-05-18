@@ -1,1 +1,1 @@
-# ConsoleChess-C-
+# ConsoleChess-C++
