@@ -5,11 +5,11 @@ I'm a student at Silesian Univeristy of Technology in Poland. I am studing Compu
 ## Program Description
 
 - Main menu:
-<img src="Images/menu.PNG" width="300" height="300">
+<img src="Images/menu.PNG" width="700" height="300">
 
 At the beginning of the program, a brief instruction about the commands that can be used in chess is displayed (The current version of the game does not support en passant captures).
 
-<img src="Images/Nicks.PNG" width="300" height="300">
+<img src="Images/Nicks.PNG" width="700" height="300">
 After pressing any button, a window is displayed where you can choose the players' nicknames.
 
 <img src="Images/Board.PNG" width="300" height="300">
