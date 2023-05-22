@@ -14,3 +14,21 @@ The program generates reports for the global data as well as individual regions.
 - Sorted list of songs available in the data file.
 
 All example reports was included in project file.
+## Run Locally
+
+Clone the project
+
+```bash
+  https://github.com/PKraska02/My_Cpp_Projects
+```
+
+Go to the Release file
+
+```bash
+  run executable file Projekt_Zaliczeniowy_Spotify.exe
+```
+
+
+## Tech Stack
+
+**Languages:** C++
