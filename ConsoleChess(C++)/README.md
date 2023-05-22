@@ -5,14 +5,14 @@ I'm a student at Silesian Univeristy of Technology in Poland. I am studing Compu
 ## Program Description
 
 - Main menu:
-<img src="Iamges/menu.png" width="300" height="300">
+<img src="Images/menu.PNG" width="700" height="300">
 
 At the beginning of the program, a brief instruction about the commands that can be used in chess is displayed (The current version of the game does not support en passant captures).
 
-<img src="Iamges/Nicks.png" width="300" height="300">
+<img src="Images/Nicks.PNG" width="700" height="300">
 After pressing any button, a window is displayed where you can choose the players' nicknames.
 
-<img src="Iamges/Board.png" width="300" height="300">
+<img src="Images/Board.PNG" width="300" height="300">
 Next, we move to the game board where the gameplay takes place. To make a move, you need to enter the following phrase: 
 -Piece symbol (p/P - pawn, n/N - knight, b/B - bishop, r/R - rook, q/Q - queen, k/K - king)
 -starting square of the piece
