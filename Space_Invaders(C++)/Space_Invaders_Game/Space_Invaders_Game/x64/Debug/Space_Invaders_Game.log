@@ -1,5 +1,8 @@
 ﻿  Trwa skanowanie źródeł pod kątem zależności modułów...
-  Bullet.cpp
+  Enemy.cpp
+  Enemy.ixx
   Trwa kompilowanie…
-  Bullet.cpp
+  Enemy.ixx
+C:\Users\Piotr\source\repos\f03fc1e6-gr21-repo\Projekt\Space_Invaders_Game\Space_Invaders_Game\Enemy.ixx(5,20): warning C5201: deklaracja modułu może występować tylko na początku jednostki translacji, chyba że zostanie użyty fragment modułu globalnego
+  Enemy.cpp
   Space_Invaders_Game.vcxproj -> C:\Users\Piotr\source\repos\f03fc1e6-gr21-repo\Projekt\Space_Invaders_Game\x64\Debug\Space_Invaders_Game.exe

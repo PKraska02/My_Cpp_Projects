@@ -1,7 +1,7 @@
 {
     "Version": "1.1",
     "Data": {
-        "Source": "c:\\users\\piotr\\source\\repos\\f03fc1e6-gr21-repo\\projekt\\space_invaders\\space_invaders\\enemy.ixx",
+        "Source": "c:\\users\\piotr\\source\\repos\\f03fc1e6-gr21-repo\\projekt\\space_invaders_game\\space_invaders_game\\enemy.ixx",
         "ProvidedModule": "Enemy",
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -9,18 +9,16 @@ export class Bullet {
 private:
 	sf::Sprite bullet_sprite;
 	std::map<std::string, sf::Texture*>bullet_textures;
-	std::vector<Bullet*> bullet;
 	std::string bullet_texture_filename = "C:/Users/Piotr/source/repos/f03fc1e6-gr21-repo/Projekt/Space_Invaders_Game/Textures/Bulet.png";
-	float bullet_speed = 1.f;
+	float bullet_speed = 10.f;
 	sf::Vector2f direction;
 public:
 	Bullet();
-	Bullet(sf::Texture* texture, float x, float y);
+	Bullet(sf::Texture* texture, float x, float y, float pos_x, float pos_y);
 	virtual ~Bullet();
-	void SetBullets();
-	std::vector<Bullet*>GetBullets();
+	const sf::FloatRect GetBounds() const;
+	std::map<std::string, sf::Texture*>*GetBulletTextures();
 	void InitBulletTexture();
 	void UpdateBullet();
-	void Fire();
 	void RenderBullet(sf::RenderTarget* target);
 };

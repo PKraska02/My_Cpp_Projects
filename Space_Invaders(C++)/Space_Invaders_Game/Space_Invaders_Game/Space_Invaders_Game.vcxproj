@@ -149,20 +149,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Enemy.cpp" />
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Enemy.ixx">
-      <EnableModules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</EnableModules>
-      <EnableModules Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</EnableModules>
-    </ClCompile>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Game.cpp" />
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Game.ixx">
-      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdcpp20</LanguageStandard>
-      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdcpp20</LanguageStandard>
-    </ClCompile>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Player.cpp" />
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Player.ixx" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullet.ixx" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy.ixx" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Game.ixx" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Player.ixx" />
     <ClCompile Include="Space_Invaders_Game.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

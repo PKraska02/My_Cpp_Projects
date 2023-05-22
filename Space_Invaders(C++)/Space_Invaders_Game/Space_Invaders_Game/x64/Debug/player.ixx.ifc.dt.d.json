@@ -1,7 +1,7 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\piotr\\source\\repos\\f03fc1e6-gr21-repo\\projekt\\space_invaders\\space_invaders\\player.ixx",
+        "Source": "c:\\users\\piotr\\source\\repos\\f03fc1e6-gr21-repo\\projekt\\space_invaders_game\\space_invaders_game\\player.ixx",
         "ProvidedModule": "Player",
         "Includes": [
             "c:\\users\\piotr\\source\\repos\\f03fc1e6-gr21-repo\\projekt\\space_invaders_game\\include\\sfml\\window.hpp",
@@ -212,6 +212,11 @@
             "c:\\users\\piotr\\source\\repos\\f03fc1e6-gr21-repo\\projekt\\space_invaders_game\\include\\sfml\\network\\udpsocket.hpp"
         ],
         "ImportedModules": [],
-        "ImportedHeaderUnits": []
+        "ImportedHeaderUnits": [
+            {
+                "Header": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.35.32215\\include\\iostream",
+                "BMI": "C:\\Users\\Piotr\\source\\repos\\f03fc1e6-gr21-repo\\Projekt\\Space_Invaders_Game\\Space_Invaders_Game\\x64\\Debug\\iostream_AAFC46F484A594D.ifc.dt"
+            }
+        ]
     }
 }

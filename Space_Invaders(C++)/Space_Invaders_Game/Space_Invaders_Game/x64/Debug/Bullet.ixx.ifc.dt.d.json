@@ -212,6 +212,11 @@
             "c:\\users\\piotr\\source\\repos\\f03fc1e6-gr21-repo\\projekt\\space_invaders_game\\include\\sfml\\network\\udpsocket.hpp"
         ],
         "ImportedModules": [],
-        "ImportedHeaderUnits": []
+        "ImportedHeaderUnits": [
+            {
+                "Header": "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.35.32215\\include\\map",
+                "BMI": "C:\\Users\\Piotr\\source\\repos\\f03fc1e6-gr21-repo\\Projekt\\Space_Invaders_Game\\Space_Invaders_Game\\x64\\Debug\\map_8ECFB0B895C68C5.ifc.dt"
+            }
+        ]
     }
 }
