@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a22d46f3-660f-4953-9bb8-a0c5184a52d2": {
+      "ProjectGuid": "a22d46f3-660f-4953-9bb8-a0c5184a52d2",
+      "DisplayName": "Project_Chess",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Różne pliki",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}

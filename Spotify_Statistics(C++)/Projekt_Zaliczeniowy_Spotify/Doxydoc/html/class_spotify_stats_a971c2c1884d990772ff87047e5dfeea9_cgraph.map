@@ -1,0 +1,10 @@
+<map id="SpotifyStats::GenerateReport" name="SpotifyStats::GenerateReport">
+<area shape="rect" id="node1" title="Funkcja generujaca raport ze statystykami piosenek." alt="" coords="5,189,197,215"/>
+<area shape="rect" id="node2" href="$class_spotify_stats.html#a616987f7267b882566d957b38c5b86c2" title="Funkcja wyznaczajaca srednia arytmetyczna odsluchan." alt="" coords="275,5,435,47"/>
+<area shape="rect" id="node3" href="$class_spotify_stats.html#a2c80ba26b6ef5b99588aadb356c7b065" title="Funkcja sortujaca Artystow wzgledem odsluchan ich piosenek." alt="" coords="271,71,438,98"/>
+<area shape="rect" id="node4" href="$class_spotify_stats.html#a199286e60f720274938ca17b8e1bdd6d" title="Funkcja wyznaczajaca najmniej popularnego artyste." alt="" coords="266,123,443,164"/>
+<area shape="rect" id="node5" href="$class_spotify_stats.html#a496481ae47587870efc9de7348221238" title="Funkcja wyznaczajaca najmniej popularna piosenke." alt="" coords="251,189,458,215"/>
+<area shape="rect" id="node6" href="$class_spotify_stats.html#a7dfa267be1731d78881a371c8cbe2d7a" title="Funkcja wyznaczajaca najpopularniejszego artyste." alt="" coords="267,240,442,281"/>
+<area shape="rect" id="node7" href="$class_spotify_stats.html#abcefb6674debe5345962e394c409148a" title="Funkcja wyznaczajaca najpopularniejsza piosenke." alt="" coords="253,306,457,333"/>
+<area shape="rect" id="node8" href="$class_spotify_stats.html#a4d206c0ba41ceef2342e560a7d112503" title="Funkcja wyznaczajaca wspolczynniki korelacji rang Spearmana miedzy regionem a iloscia odsluchan." alt="" coords="245,357,464,383"/>
+</map>
