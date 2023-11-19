@@ -99,7 +99,7 @@ namespace ColorBackgroundRemover {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(853, 63);
+			this->label1->Location = System::Drawing::Point(840, 63);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(138, 20);
 			this->label1->TabIndex = 0;
@@ -109,9 +109,9 @@ namespace ColorBackgroundRemover {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"C++", L"ASM" });
-			this->comboBox1->Location = System::Drawing::Point(857, 98);
+			this->comboBox1->Location = System::Drawing::Point(844, 98);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 21);
+			this->comboBox1->Size = System::Drawing::Size(134, 21);
 			this->comboBox1->TabIndex = 1;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &GUI::comboBox1_SelectedIndexChanged);
 			// 
@@ -119,7 +119,7 @@ namespace ColorBackgroundRemover {
 			// 
 			this->pictureBox1->Location = System::Drawing::Point(26, 63);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(763, 413);
+			this->pictureBox1->Size = System::Drawing::Size(596, 340);
 			this->pictureBox1->TabIndex = 2;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &GUI::pictureBox1_Click);
@@ -214,34 +214,38 @@ namespace ColorBackgroundRemover {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(827, 164);
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label5->Location = System::Drawing::Point(766, 164);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(52, 13);
+			this->label5->Size = System::Drawing::Size(76, 20);
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Time C++";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(823, 192);
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label6->Location = System::Drawing::Point(760, 190);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(56, 13);
+			this->label6->Size = System::Drawing::Size(82, 20);
 			this->label6->TabIndex = 8;
 			this->label6->Text = L"Time ASM";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(889, 164);
+			this->textBox1->Location = System::Drawing::Point(844, 164);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->Size = System::Drawing::Size(145, 20);
 			this->textBox1->TabIndex = 9;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &GUI::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(891, 190);
+			this->textBox2->Location = System::Drawing::Point(844, 190);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
+			this->textBox2->Size = System::Drawing::Size(145, 20);
 			this->textBox2->TabIndex = 10;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &GUI::textBox2_TextChanged);
 			// 
@@ -250,19 +254,20 @@ namespace ColorBackgroundRemover {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label7->Location = System::Drawing::Point(853, 268);
+			this->label7->Location = System::Drawing::Point(840, 230);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(67, 20);
 			this->label7->TabIndex = 11;
 			this->label7->Text = L"Threads";
+			this->label7->Click += gcnew System::EventHandler(this, &GUI::label7_Click);
 			// 
 			// comboBox2
 			// 
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(7) { L"1", L"2", L"4", L"8", L"16", L"32", L"64" });
-			this->comboBox2->Location = System::Drawing::Point(857, 312);
+			this->comboBox2->Location = System::Drawing::Point(844, 275);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(121, 21);
+			this->comboBox2->Size = System::Drawing::Size(145, 21);
 			this->comboBox2->TabIndex = 12;
 			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &GUI::comboBox2_SelectedIndexChanged);
 			// 
@@ -315,6 +320,8 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void toolStripButton2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
