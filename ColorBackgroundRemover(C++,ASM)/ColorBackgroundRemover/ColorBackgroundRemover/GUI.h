@@ -40,7 +40,7 @@ namespace ColorBackgroundRemover {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::ToolStrip^ toolStrip2;
 	private: System::Windows::Forms::ToolStripButton^ toolStripButton2;
-	private: System::Windows::Forms::ToolStripProgressBar^ toolStripProgressBar1;
+
 	private: System::Windows::Forms::ToolStripSeparator^ toolStripSeparator1;
 	private: System::Windows::Forms::ToolStripButton^ toolStripButton1;
 	private: System::Windows::Forms::ToolStripSeparator^ toolStripSeparator2;
@@ -55,6 +55,36 @@ namespace ColorBackgroundRemover {
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::ComboBox^ comboBox2;
 	private: System::ComponentModel::IContainer^ components;
+
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label9;
+	private: bool isPipetteActive = false;
+	private: int power = 0; 
+	private: System::Windows::Forms::ToolStripTextBox^ TextBoxPower;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Panel^ panel1;
+
+
+	private: const int powerIncrement = 5;
+
+
+
+
+
+	System::Drawing::Color GetPixelColor(System::Drawing::Point point) {
+			// Get the image from the pictureBox
+			 System::Drawing::Bitmap^ bmp = dynamic_cast<System::Drawing::Bitmap^>(pictureBox1->Image);
+
+			 // Check if the image is not null
+			 if (bmp != nullptr) {
+				// Get the color of the pixel at the specified point
+				return bmp->GetPixel(point.X, point.Y);
+			 }
+
+		// If the image is null, return a default color
+		return System::Drawing::Color::Black;
+	}
 
 
 	private:
@@ -76,8 +106,8 @@ namespace ColorBackgroundRemover {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->toolStrip2 = (gcnew System::Windows::Forms::ToolStrip());
 			this->toolStripButton2 = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripProgressBar1 = (gcnew System::Windows::Forms::ToolStripProgressBar());
 			this->toolStripSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->TextBoxPower = (gcnew System::Windows::Forms::ToolStripTextBox());
 			this->toolStripButton1 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator2 = (gcnew System::Windows::Forms::ToolStripSeparator());
 			this->toolStripButton3 = (gcnew System::Windows::Forms::ToolStripButton());
@@ -90,8 +120,14 @@ namespace ColorBackgroundRemover {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->toolStrip2->SuspendLayout();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -117,9 +153,9 @@ namespace ColorBackgroundRemover {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(26, 63);
+			this->pictureBox1->Location = System::Drawing::Point(12, 3);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(596, 340);
+			this->pictureBox1->Size = System::Drawing::Size(613, 354);
 			this->pictureBox1->TabIndex = 2;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &GUI::pictureBox1_Click);
@@ -128,13 +164,14 @@ namespace ColorBackgroundRemover {
 			// 
 			this->toolStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->toolStripButton2,
-					this->toolStripProgressBar1, this->toolStripSeparator1, this->toolStripButton1, this->toolStripSeparator2, this->toolStripButton3
+					this->toolStripSeparator1, this->TextBoxPower, this->toolStripButton1, this->toolStripSeparator2, this->toolStripButton3
 			});
 			this->toolStrip2->Location = System::Drawing::Point(0, 0);
 			this->toolStrip2->Name = L"toolStrip2";
 			this->toolStrip2->Size = System::Drawing::Size(1015, 25);
 			this->toolStrip2->TabIndex = 3;
 			this->toolStrip2->Text = L"toolStrip2";
+			this->toolStrip2->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &GUI::toolStrip2_ItemClicked);
 			// 
 			// toolStripButton2
 			// 
@@ -147,16 +184,16 @@ namespace ColorBackgroundRemover {
 			this->toolStripButton2->Text = L"Pippete";
 			this->toolStripButton2->Click += gcnew System::EventHandler(this, &GUI::toolStripButton2_Click);
 			// 
-			// toolStripProgressBar1
-			// 
-			this->toolStripProgressBar1->Name = L"toolStripProgressBar1";
-			this->toolStripProgressBar1->Size = System::Drawing::Size(200, 22);
-			this->toolStripProgressBar1->Click += gcnew System::EventHandler(this, &GUI::toolStripProgressBar1_Click);
-			// 
 			// toolStripSeparator1
 			// 
 			this->toolStripSeparator1->Name = L"toolStripSeparator1";
 			this->toolStripSeparator1->Size = System::Drawing::Size(6, 25);
+			// 
+			// TextBoxPower
+			// 
+			this->TextBoxPower->Name = L"TextBoxPower";
+			this->TextBoxPower->Size = System::Drawing::Size(100, 25);
+			this->TextBoxPower->Click += gcnew System::EventHandler(this, &GUI::toolStripTextBox1_Click);
 			// 
 			// toolStripButton1
 			// 
@@ -167,6 +204,7 @@ namespace ColorBackgroundRemover {
 			this->toolStripButton1->Name = L"toolStripButton1";
 			this->toolStripButton1->Size = System::Drawing::Size(43, 22);
 			this->toolStripButton1->Text = L"toolStripButton1";
+			this->toolStripButton1->Click += gcnew System::EventHandler(this, &GUI::toolStripButton1_Click);
 			// 
 			// toolStripSeparator2
 			// 
@@ -182,12 +220,13 @@ namespace ColorBackgroundRemover {
 			this->toolStripButton3->Name = L"toolStripButton3";
 			this->toolStripButton3->Size = System::Drawing::Size(43, 22);
 			this->toolStripButton3->Text = L"toolStripButton3";
+			this->toolStripButton3->Click += gcnew System::EventHandler(this, &GUI::toolStripButton3_Click);
 			// 
 			// label2
 			// 
-			this->label2->Location = System::Drawing::Point(253, 25);
+			this->label2->Location = System::Drawing::Point(151, 25);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(63, 35);
+			this->label2->Size = System::Drawing::Size(63, 26);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Decrease \r\npower";
 			this->label2->Click += gcnew System::EventHandler(this, &GUI::label2_Click);
@@ -195,7 +234,7 @@ namespace ColorBackgroundRemover {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(306, 25);
+			this->label3->Location = System::Drawing::Point(211, 25);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(51, 26);
 			this->label3->TabIndex = 5;
@@ -271,11 +310,61 @@ namespace ColorBackgroundRemover {
 			this->comboBox2->TabIndex = 12;
 			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &GUI::comboBox2_SelectedIndexChanged);
 			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label8->Location = System::Drawing::Point(546, 14);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(97, 16);
+			this->label8->TabIndex = 14;
+			this->label8->Text = L"Pippete Status:";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(650, 14);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(17, 13);
+			this->label9->TabIndex = 15;
+			this->label9->Text = L"\"\"\r\n";
+			this->label9->Click += gcnew System::EventHandler(this, &GUI::label9_Click);
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"7";
+			this->openFileDialog1->Title = L"Load Image";
+			// 
+			// button1
+			// 
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->button1->Location = System::Drawing::Point(26, 445);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(142, 35);
+			this->button1->TabIndex = 16;
+			this->button1->Text = L"Load Image";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &GUI::button1_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->pictureBox1);
+			this->panel1->Location = System::Drawing::Point(26, 54);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(641, 366);
+			this->panel1->TabIndex = 17;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GUI::panel1_Paint);
+			// 
 			// GUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1015, 504);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->comboBox2);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->textBox2);
@@ -286,14 +375,16 @@ namespace ColorBackgroundRemover {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->toolStrip2);
-			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label1);
+			this->Controls->Add(this->panel1);
 			this->Name = L"GUI";
 			this->Text = L"GUI";
+			this->Load += gcnew System::EventHandler(this, &GUI::GUI_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->toolStrip2->ResumeLayout(false);
 			this->toolStrip2->PerformLayout();
+			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -307,6 +398,28 @@ private: System::Void toolStripProgressBar1_Click(System::Object^ sender, System
 }
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void toolStripButton3_Click(System::Object^ sender, System::EventArgs^ e) {
+	// This function will be called when the "Increase power" label is clicked
+	// Increase the power by the specified increment
+	power += powerIncrement;
+
+	// Ensure that the power value is within the valid range (0 to 100)
+	power = Math::Max(0, Math::Min(100, power));
+
+	// Display the current power value in the textBoxPower
+	TextBoxPower->Text = power.ToString();
+}
+private: System::Void toolStripButton1_Click(System::Object^ sender, System::EventArgs^ e) {
+	// This function will be called when the "Decrease power" label is clicked
+	// Decrease the power by the specified increment
+	power -= powerIncrement;
+
+	// Ensure that the power value is within the valid range (0 to 100)
+	power = Math::Max(0, Math::Min(100, power));
+
+	// Display the current power value in the textBoxPower
+	TextBoxPower->Text = power.ToString();
+}
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -318,10 +431,83 @@ private: System::Void textBox1_TextChanged(System::Object^ sender, System::Event
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	// This function will be called when the pictureBox1 is clicked
+		// Add your code here to handle the pictureBox1 click
+	MouseEventArgs^ me = dynamic_cast<MouseEventArgs^>(e);
+
+	// Check if the left mouse button is clicked and the pipette is active
+	if (me->Button == System::Windows::Forms::MouseButtons::Left && isPipetteActive) {
+		// Get the clicked point
+		System::Drawing::Point clickedPoint = me->Location;
+
+		// Get the color of the clicked point
+		System::Drawing::Color clickedColor = GetPixelColor(clickedPoint);
+
+		// Convert the color components to string for display
+		String^ colorInfo = String::Format("R: {0}, G: {1}, B: {2}", clickedColor.R, clickedColor.G, clickedColor.B);
+
+		// Show the color information in a message box
+		MessageBox::Show("Pipetted Color: " + colorInfo);
+
+		// Reset the pipette active state to false
+		isPipetteActive = false;
+		if (isPipetteActive) {
+			label9->Text = "Pipette activated";
+		}
+		else {
+			label9->Text = "Pipette deactivated";
+		}
+	}
 }
 private: System::Void toolStripButton2_Click(System::Object^ sender, System::EventArgs^ e) {
+	// This function will be called when the Pipette button is clicked
+	// Add your code here to handle the Pipette button click
+	// For example, you can show a message box:
+	//MessageBox::Show("Pipette button clicked!");
+	//isPipetteActive = !isPipetteActive;
+	// Set the pipette active state to true
+	isPipetteActive = true;
+	// Check the state of the pipette and update the text in textBox3
+	if (isPipetteActive) {
+		label9->Text = "Pipette activated";
+	}
+	else {
+		label9->Text = "Pipette deactivated";
+	}
 }
 private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void toolStrip2_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
+}
+private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void toolStripTextBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void GUI_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	openFileDialog1->Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.gif;*.png";
+	openFileDialog1->Title = "Select an Image File";
+
+	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+		// Get the selected file name
+		String^ selectedFileName = openFileDialog1->FileName;
+
+		// Display the selected image in the PictureBox
+		pictureBox1->Image = Image::FromFile(selectedFileName);
+	}
+}
+private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	// Get the Graphics object for drawing
+	Graphics^ g = e->Graphics;
+
+	// Set the color and width of the border
+	Pen^ borderPen = gcnew Pen(Color::Black, 6);
+
+	// Draw a border around the PictureBox
+	g->DrawRectangle(borderPen, pictureBox1->Left - 1, pictureBox1->Top - 1, pictureBox1->Width + 1, pictureBox1->Height + 1);
+}
 };
+
 }
