@@ -1,4 +1,0 @@
-C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\ColorBackgroundRemover\x64\Debug\ColorBackgroundRemover.vcxproj.AssemblyReference.cache
-C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\ColorBackgroundRemover\x64\Debug\ColorBackgroundRemover.GUI.resources
-C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\ColorBackgroundRemover\x64\Debug\ColorBackgroundRemover.vcxproj.GenerateResource.cache
-C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\ColorBackgroundRemover\x64\Debug\ColorBackgroundRemover.vcxproj.SuggestedBindingRedirects.cache

@@ -1,4 +1,5 @@
 #include "GUI.h"
+#include "CPPColorRemoverLIB.h"
 using namespace System;
 using namespace System::Windows::Forms;
 
