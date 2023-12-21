@@ -84,16 +84,17 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>..\..\ColorBackgroundRemover\CPPColorRemoverLIB</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ColorBackgroundRemover\CPPColorRemoverLIB;..\ColorBackgroundRemover\ASMColorRemoverLIB</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\CPPColorRemoverLIB.lib"</AdditionalDependencies>
+      <AdditionalDependencies>"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\CPPColorRemoverLIB.lib";"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.lib"</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>Main</EntryPointSymbol>
       <AdditionalLibraryDirectories>C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover%28C++,ASM%29\ColorBackgroundRemover\x64\$(IntDir)</AdditionalLibraryDirectories>
@@ -106,10 +107,10 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>..\..\ColorBackgroundRemover\CPPColorRemoverLIB</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ColorBackgroundRemover\CPPColorRemoverLIB;..\ColorBackgroundRemover\ASMColorRemoverLIB</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\CPPColorRemoverLIB.lib"</AdditionalDependencies>
+      <AdditionalDependencies>"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\CPPColorRemoverLIB.lib";"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.lib"</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>Main</EntryPointSymbol>
       <AdditionalLibraryDirectories>C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover%28C++,ASM%29\ColorBackgroundRemover\x64\$(IntDir)</AdditionalLibraryDirectories>
@@ -122,10 +123,10 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>..\..\ColorBackgroundRemover\CPPColorRemoverLIB</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ColorBackgroundRemover\ASMColorRemoverLIB;..\..\ColorBackgroundRemover\CPPColorRemoverLIB</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\CPPColorRemoverLIB.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\CPPColorRemoverLIB.lib;C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover%28C++,ASM%29\ColorBackgroundRemover\x64\$(IntDir)</AdditionalLibraryDirectories>
       <NoEntryPoint>false</NoEntryPoint>
       <ShowProgress>NotSet</ShowProgress>
@@ -136,10 +137,10 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>..\..\ColorBackgroundRemover\CPPColorRemoverLIB</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ColorBackgroundRemover\ASMColorRemoverLIB;..\..\ColorBackgroundRemover\CPPColorRemoverLIB</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\CPPColorRemoverLIB.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\CPPColorRemoverLIB.lib;C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover%28C++,ASM%29\ColorBackgroundRemover\x64\$(IntDir)</AdditionalLibraryDirectories>
       <NoEntryPoint>false</NoEntryPoint>
       <ShowProgress>NotSet</ShowProgress>

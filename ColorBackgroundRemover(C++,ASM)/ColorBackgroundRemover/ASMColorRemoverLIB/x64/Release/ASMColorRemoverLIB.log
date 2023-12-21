@@ -1,0 +1,5 @@
+﻿  pch.cpp
+  ASMColorRemoverLIB.cpp
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\ASMColorRemoverLIB\ASMColorRemoverLIB.cpp(5,24): error C2144: błąd składniowy: „int” powinno być poprzedzone „;”
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\ASMColorRemoverLIB\ASMColorRemoverLIB.cpp(5,28): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
+  dllmain.cpp

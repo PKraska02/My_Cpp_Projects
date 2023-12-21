@@ -5,10 +5,13 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ColorBackgroundRemover", "ColorBackgroundRemover\ColorBackgroundRemover.vcxproj", "{226D6EAB-FBBD-4C9C-98F5-BDEF815A87AB}"
 	ProjectSection(ProjectDependencies) = postProject
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F} = {97C76258-A89F-4B2A-A2F7-CCFECA009D0F}
 		{CFBDE5A3-596B-4685-93A7-328D9A65BA3D} = {CFBDE5A3-596B-4685-93A7-328D9A65BA3D}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPColorRemoverLIB", "CPPColorRemoverLIB\CPPColorRemoverLIB.vcxproj", "{CFBDE5A3-596B-4685-93A7-328D9A65BA3D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ASMColorRemoverLIB", "ASMColorRemoverLIB\ASMColorRemoverLIB.vcxproj", "{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +37,14 @@ Global
 		{CFBDE5A3-596B-4685-93A7-328D9A65BA3D}.Release|x64.Build.0 = Release|x64
 		{CFBDE5A3-596B-4685-93A7-328D9A65BA3D}.Release|x86.ActiveCfg = Release|Win32
 		{CFBDE5A3-596B-4685-93A7-328D9A65BA3D}.Release|x86.Build.0 = Release|Win32
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}.Debug|x64.ActiveCfg = Debug|x64
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}.Debug|x64.Build.0 = Debug|x64
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}.Debug|x86.ActiveCfg = Debug|Win32
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}.Debug|x86.Build.0 = Debug|Win32
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}.Release|x64.ActiveCfg = Release|x64
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}.Release|x64.Build.0 = Release|x64
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}.Release|x86.ActiveCfg = Release|Win32
+		{97C76258-A89F-4B2A-A2F7-CCFECA009D0F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

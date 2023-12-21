@@ -1,1 +1,4 @@
-﻿LINK : fatal error LNK1104: nie można otworzyć pliku „CPPColorRemoverLIB.lib”
+﻿  GUI.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Generowanie kodu...
+LINK : fatal error LNK1104: nie można otworzyć pliku „C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.lib”

@@ -1,56 +1,52 @@
-// MathLibrary.cpp : Defines the exported functions for the DLL.
+
 #include "pch.h" 
 #include <utility>
 #include <limits.h>
 #include "CPPColorRemoverLIB.h"
+#include <Windows.h>
 
-// DLL internal state variables:
-static unsigned long long previous_;  // Previous value, if any
-static unsigned long long current_;   // Current sequence value
-static unsigned index_;               // Current seq. position
 
-// Initialize a Fibonacci relation sequence
-// such that F(0) = a, F(1) = b.
-// This function must be called before any other function.
-void fibonacci_init(
-    const unsigned long long a,
-    const unsigned long long b)
+extern "C" __declspec(dllexport) void ProcessImageCPP(BYTE * imageData, int width, int height, int power)
 {
-    index_ = 0;
-    current_ = a;
-    previous_ = b; // see special case when initialized
-}
-
-// Produce the next value in the sequence.
-// Returns true on success, false on overflow.
-bool fibonacci_next()
-{
-    // check to see if we'd overflow result or position
-    if ((ULLONG_MAX - previous_ < current_) ||
-        (UINT_MAX == index_))
+    // Iterate through each pixel in the image
+    for (int y = 0; y < height; ++y)
     {
-        return false;
-    }
+        for (int x = 0; x < width; ++x)
+        {
+            // Calculate the index of the current pixel
+            int index = (y * width + x) * 3;
 
-    // Special case when index == 0, just return b value
-    if (index_ > 0)
-    {
-        // otherwise, calculate next sequence value
-        previous_ += current_;
+            // Extract RGB components
+            int red = imageData[index];
+            int green = imageData[index + 1];
+            int blue = imageData[index + 2];
+
+            // Modify RGB components based on power
+            red = max(0, min(255, red * ((power * 0.01))));
+            green = max(0, min(255, green * ((power * 0.01))));
+            blue = max(0, min(255, blue * ((power * 0.01))));
+
+            // Update the image data with the modified color
+            imageData[index] = static_cast<BYTE>(red);
+            imageData[index + 1] = static_cast<BYTE>(green);
+            imageData[index + 2] = static_cast<BYTE>(blue);
+        }
     }
-    std::swap(current_, previous_);
-    ++index_;
-    return true;
 }
 
-// Get the current value in the sequence.
-unsigned long long fibonacci_current()
-{
-    return current_;
-}
 
-// Get the current index position in the sequence.
-unsigned fibonacci_index()
+extern "C" __declspec(dllexport) COLORREF RemoveColor(COLORREF inputColor, int power)
 {
-    return index_;
+    // Extract RGB components
+    int red = GetRValue(inputColor);
+    int green = GetGValue(inputColor);
+    int blue = GetBValue(inputColor);
+
+    // Modify RGB components based on power
+    red = max(0, min(255, red * ((power * 0.01))));
+    green = max(0, min(255, green * ((power * 0.01))));
+    blue = max(0, min(255, blue * ((power * 0.01))));
+
+    // Return the modified color
+    return RGB(red, green, blue);
 }

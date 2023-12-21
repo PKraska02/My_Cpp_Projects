@@ -1,0 +1,2 @@
+#define ASMCOLORREMOVERLIB_API __declspec(dllexport)
+#define ASMCOLORREMOVERLIB_API __declspec(dllimport)
