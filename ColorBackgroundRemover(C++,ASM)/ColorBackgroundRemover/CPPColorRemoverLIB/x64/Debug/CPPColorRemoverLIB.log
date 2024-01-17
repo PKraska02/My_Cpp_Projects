@@ -1,5 +1,8 @@
 ﻿  CPPColorRemoverLIB.cpp
-C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(39,19): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
-C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(40,21): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
-C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(41,20): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(28,23): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(29,25): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(30,24): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(62,11): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(63,13): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\CPPColorRemoverLIB\CPPColorRemoverLIB.cpp(64,12): warning C4244: "=": konwersja z "double" do "int", możliwa utrata danych
   CPPColorRemoverLIB.vcxproj -> C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\CPPColorRemoverLIB.dll

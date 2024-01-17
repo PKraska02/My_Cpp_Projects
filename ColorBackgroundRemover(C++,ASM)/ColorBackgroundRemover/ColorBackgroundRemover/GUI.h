@@ -1,6 +1,8 @@
 #pragma once
 #include "CPPColorRemoverLIB.h"
 #include <Windows.h>
+#include <vector>
+#include <utility>  
 namespace ColorBackgroundRemover {
 
 	using namespace System;
@@ -70,10 +72,42 @@ namespace ColorBackgroundRemover {
 
 	private: const int powerIncrement = 5;
 	System::String^ selectedLanguage = "";
+	private: System::Windows::Forms::ToolStripSeparator^ toolStripSeparator3;
+	private: System::Windows::Forms::ToolStripButton^ toolStripButton4;
+	private: System::Windows::Forms::Splitter^ splitter1;
+	private: System::Windows::Forms::Label^ label10;
+		   bool isSelecting = false;
+		   bool isCutterSelected = false;
+		   const int MaxPoints = 32;
+		   int pointCounter = 0;
+		   array<int>^ xValues = gcnew array<int>(MaxPoints);
+		   array<int>^ yValues = gcnew array<int>(MaxPoints);
+		   
+
+	//
+		   array<System::Drawing::Point>^ CreatePointArray(int numberOfPoints) {
+			   array<System::Drawing::Point>^ points = gcnew array<System::Drawing::Point>(numberOfPoints);
+
+			   // Dodaj punkty do tablicy, korzystaj¹c z wczeœniej zapisanych wartoœci x i y
+			   for (int i = 0; i < numberOfPoints; ++i) {
+				   // SprawdŸ, czy istniej¹ wartoœci x i y dla danego indeksu
+				   if (i < pointCounter) {
+					   // Ustaw wspó³rzêdne x i y na wczeœniej zapisane wartoœci
+					   points[i] = System::Drawing::Point(xValues[i], yValues[i]);
+				   }
+				   else {
+					   // Domyœlne wartoœci, jeœli nie ma wczeœniej zapisanych danych
+					   points[i] = System::Drawing::Point(i, i);
+				   }
+			   }
+
+			   return points;
+			}
 
 
 
 
+	//
 
 	System::Drawing::Color GetPixelColor(System::Drawing::Point point) {
 			// Get the image from the pictureBox
@@ -129,6 +163,10 @@ namespace ColorBackgroundRemover {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->splitter1 = (gcnew System::Windows::Forms::Splitter());
+			this->toolStripSeparator3 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripButton4 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->toolStrip2->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -167,13 +205,14 @@ namespace ColorBackgroundRemover {
 			// toolStrip2
 			// 
 			this->toolStrip2->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->toolStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
+			this->toolStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(8) {
 				this->toolStripButton2,
-					this->toolStripSeparator1, this->TextBoxPower, this->toolStripButton1, this->toolStripSeparator2, this->toolStripButton3
+					this->toolStripSeparator1, this->TextBoxPower, this->toolStripButton1, this->toolStripSeparator2, this->toolStripButton3, this->toolStripSeparator3,
+					this->toolStripButton4
 			});
 			this->toolStrip2->Location = System::Drawing::Point(0, 0);
 			this->toolStrip2->Name = L"toolStrip2";
-			this->toolStrip2->Size = System::Drawing::Size(1015, 25);
+			this->toolStrip2->Size = System::Drawing::Size(1015, 27);
 			this->toolStrip2->TabIndex = 3;
 			this->toolStrip2->Text = L"toolStrip2";
 			this->toolStrip2->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &GUI::toolStrip2_ItemClicked);
@@ -192,13 +231,13 @@ namespace ColorBackgroundRemover {
 			// toolStripSeparator1
 			// 
 			this->toolStripSeparator1->Name = L"toolStripSeparator1";
-			this->toolStripSeparator1->Size = System::Drawing::Size(6, 25);
+			this->toolStripSeparator1->Size = System::Drawing::Size(6, 27);
 			// 
 			// TextBoxPower
 			// 
 			this->TextBoxPower->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
 			this->TextBoxPower->Name = L"TextBoxPower";
-			this->TextBoxPower->Size = System::Drawing::Size(100, 25);
+			this->TextBoxPower->Size = System::Drawing::Size(100, 27);
 			this->TextBoxPower->Click += gcnew System::EventHandler(this, &GUI::toolStripTextBox1_Click);
 			// 
 			// toolStripButton1
@@ -215,7 +254,7 @@ namespace ColorBackgroundRemover {
 			// toolStripSeparator2
 			// 
 			this->toolStripSeparator2->Name = L"toolStripSeparator2";
-			this->toolStripSeparator2->Size = System::Drawing::Size(6, 25);
+			this->toolStripSeparator2->Size = System::Drawing::Size(6, 27);
 			// 
 			// toolStripButton3
 			// 
@@ -375,11 +414,45 @@ namespace ColorBackgroundRemover {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &GUI::button2_Click);
 			// 
+			// splitter1
+			// 
+			this->splitter1->Location = System::Drawing::Point(0, 27);
+			this->splitter1->Name = L"splitter1";
+			this->splitter1->Size = System::Drawing::Size(3, 477);
+			this->splitter1->TabIndex = 19;
+			this->splitter1->TabStop = false;
+			// 
+			// toolStripSeparator3
+			// 
+			this->toolStripSeparator3->Name = L"toolStripSeparator3";
+			this->toolStripSeparator3->Size = System::Drawing::Size(6, 27);
+			// 
+			// toolStripButton4
+			// 
+			this->toolStripButton4->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripButton4.Image")));
+			this->toolStripButton4->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton4->Name = L"toolStripButton4";
+			this->toolStripButton4->Size = System::Drawing::Size(24, 24);
+			this->toolStripButton4->Text = L"toolStripButton4";
+			this->toolStripButton4->Click += gcnew System::EventHandler(this, &GUI::toolStripButton4_Click);
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(269, 27);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(35, 13);
+			this->label10->TabIndex = 20;
+			this->label10->Text = L"Cutter";
+			// 
 			// GUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1015, 504);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->splitter1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label9);
@@ -459,27 +532,53 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 		selectedLanguage = "ASM";
 	}
 }
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-	// This function will be called when the pictureBox1 is clicked
-		// Add your code here to handle the pictureBox1 click
-	MouseEventArgs^ me = dynamic_cast<MouseEventArgs^>(e);
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		// This function will be called when the pictureBox1 is clicked
+			// Add your code here to handle the pictureBox1 click
+		MouseEventArgs^ me = dynamic_cast<MouseEventArgs^>(e);
+		if (isCutterSelected&& pointCounter < MaxPoints) {
+			// Get the clicked point
+			System::Drawing::Point clickedPoint = me->Location;
+			xValues[pointCounter] = clickedPoint.X;
+			yValues[pointCounter] = clickedPoint.Y;
+			pointCounter++;
+			// Use the clickedPoint as needed, for example, display in a MessageBox
+			MessageBox::Show(String::Format("Clicked point - X: {0}, Y: {1}", clickedPoint.X, clickedPoint.Y));
+		}
+		else {
+			// Optional: Inform the user that the maximum number of points has been reached
+			MessageBox::Show("Maximum number of points reached!");
+		}
+			// Check if the left mouse button is clicked and the pipette is active
+			if (me->Button == System::Windows::Forms::MouseButtons::Left && isPipetteActive) {
+				// Get the clicked point
+				System::Drawing::Point clickedPoint = me->Location;
 
-	// Check if the left mouse button is clicked and the pipette is active
-	if (me->Button == System::Windows::Forms::MouseButtons::Left && isPipetteActive) {
-		// Get the clicked point
-		System::Drawing::Point clickedPoint = me->Location;
+				// Get the color of the clicked point
+				System::Drawing::Color clickedColor = GetPixelColor(clickedPoint);
 
-		// Get the color of the clicked point
-		System::Drawing::Color clickedColor = GetPixelColor(clickedPoint);
+				// Convert the color components to string for display
+				String^ colorInfo = String::Format("R: {0}, G: {1}, B: {2}", clickedColor.R, clickedColor.G, clickedColor.B);
 
-		// Convert the color components to string for display
-		String^ colorInfo = String::Format("R: {0}, G: {1}, B: {2}", clickedColor.R, clickedColor.G, clickedColor.B);
+				// Show the color information in a message box
+				MessageBox::Show("Pipetted Color: " + colorInfo);
 
-		// Show the color information in a message box
-		MessageBox::Show("Pipetted Color: " + colorInfo);
+				// Reset the pipette active state to false
+				isPipetteActive = false;
+				if (isPipetteActive) {
+					label9->Text = "Pipette activated";
+				}
+				else {
+					label9->Text = "Pipette deactivated";
+				}
+			}
+		
+	}
+	private: System::Void toolStripButton2_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		// Reset the pipette active state to false
-		isPipetteActive = false;
+		// Set the pipette active state to true
+		isPipetteActive = true;
+		// Check the state of the pipette and update the text in textBox3
 		if (isPipetteActive) {
 			label9->Text = "Pipette activated";
 		}
@@ -487,23 +586,6 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 			label9->Text = "Pipette deactivated";
 		}
 	}
-}
-private: System::Void toolStripButton2_Click(System::Object^ sender, System::EventArgs^ e) {
-	// This function will be called when the Pipette button is clicked
-	// Add your code here to handle the Pipette button click
-	// For example, you can show a message box:
-	//MessageBox::Show("Pipette button clicked!");
-	//isPipetteActive = !isPipetteActive;
-	// Set the pipette active state to true
-	isPipetteActive = true;
-	// Check the state of the pipette and update the text in textBox3
-	if (isPipetteActive) {
-		label9->Text = "Pipette activated";
-	}
-	else {
-		label9->Text = "Pipette deactivated";
-	}
-}
 private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void toolStrip2_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
@@ -540,6 +622,17 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	// Pobierz obraz z pictureBox1
 	System::Drawing::Bitmap^ bmp = dynamic_cast<System::Drawing::Bitmap^>(pictureBox1->Image);
+	array<System::Drawing::Point>^ myPointsArray;
+	myPointsArray = CreatePointArray(pointCounter);
+	//konwersja na zwyk³¹ tablicê aby przekazaæ do funkcji w dll
+	const int MaxPoints = 32;
+	int xVal[MaxPoints] = { 0 };
+	int yVal[MaxPoints] = { 0 };
+	for (int i = 0; i < Math::Min(myPointsArray->Length, MaxPoints); ++i) {
+		xVal[i] = myPointsArray[i].X;
+		yVal[i] = myPointsArray[i].Y;
+	}
+
 
 	if (bmp != nullptr) {
 		// Pobierz dane obrazu
@@ -548,17 +641,14 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 		// SprawdŸ wybrany jêzyk i przetwórz obraz odpowiedni¹ funkcj¹
 		if (selectedLanguage == "C++") {
-			ProcessImageCPP(static_cast<BYTE*>(bmpData->Scan0.ToPointer()), bmp->Width, bmp->Height, this->power);
+			ProcessImageCPP(static_cast<BYTE*>(bmpData->Scan0.ToPointer()), bmp->Width, bmp->Height, this->power,xVal,yVal, pointCounter);
 		}
 		else if (selectedLanguage == "ASM") {
 			//ProcessImageAsm(static_cast<BYTE*>(bmpData->Scan0.ToPointer()), bmp->Width, bmp->Height, this->power);
 		}
 		else {
-			// Obs³u¿ przypadek, gdy nie ma takiego jêzyka
-			// np. wyœwietl komunikat o b³êdzie
 			MessageBox::Show("Nieprawid³owy jêzyk wybrany");
 		}
-
 		// Odblokuj obszar obrazu
 		bmp->UnlockBits(bmpData);
 
@@ -566,6 +656,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		pictureBox1->Invalidate();
 	}
 }
+
+
+private: System::Void toolStripButton4_Click(System::Object^ sender, System::EventArgs^ e) {
+	isCutterSelected = !isCutterSelected;
+}
+
 };
 
 }
+

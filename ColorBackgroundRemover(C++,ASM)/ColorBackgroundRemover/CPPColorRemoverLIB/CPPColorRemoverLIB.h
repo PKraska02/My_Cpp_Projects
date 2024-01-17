@@ -17,4 +17,5 @@
 //// Get the position of the current value in the sequence.
 //extern "C" CPPCOLORREMOVERLIB_API unsigned fibonacci_index();
 extern "C" __declspec(dllexport) COLORREF RemoveColor(COLORREF inputColor, int power);
-extern "C" __declspec(dllexport) void ProcessImageCPP(BYTE * imageData, int width, int height, int power);
+extern "C" __declspec(dllexport) void ProcessImageCPP(BYTE * imageData, int width, int height, int power, int xValues[32], int yValues[32], int pointcount);
+extern "C" __declspec(dllexport) bool IsPointInsidePolygon(int x, int y, int xValues[32], int yValues[32], int pointcount);
