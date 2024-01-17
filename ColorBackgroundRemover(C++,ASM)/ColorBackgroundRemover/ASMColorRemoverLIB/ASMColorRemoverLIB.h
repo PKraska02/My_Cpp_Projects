@@ -7,5 +7,5 @@
 #define ASMCOLORREMOVERLIB_API __declspec(dllimport)
 #endif
 
-extern ASMCOLORREMOVERLIB_API int testx1;
-extern void ProcessImageASM(BYTE * imageData, int width, int height, int power);
+//extern ASMCOLORREMOVERLIB_API int testx1;
+extern "C" ASMCOLORREMOVERLIB_API void inline ProcessImageASM(int red, int green, int blue, int power);

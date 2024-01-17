@@ -56,7 +56,7 @@ namespace ColorBackgroundRemover {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::ComboBox^ comboBox2;
+
 	private: System::ComponentModel::IContainer^ components;
 
 	private: System::Windows::Forms::Label^ label8;
@@ -81,6 +81,7 @@ namespace ColorBackgroundRemover {
 		   const int MaxPoints = 32;
 		   int pointCounter = 0;
 		   array<int>^ xValues = gcnew array<int>(MaxPoints);
+	private: System::Windows::Forms::TextBox^ textBox3;
 		   array<int>^ yValues = gcnew array<int>(MaxPoints);
 		   
 
@@ -148,6 +149,8 @@ namespace ColorBackgroundRemover {
 			this->toolStripButton1 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator2 = (gcnew System::Windows::Forms::ToolStripSeparator());
 			this->toolStripButton3 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->toolStripSeparator3 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripButton4 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -156,7 +159,6 @@ namespace ColorBackgroundRemover {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
@@ -164,9 +166,8 @@ namespace ColorBackgroundRemover {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->splitter1 = (gcnew System::Windows::Forms::Splitter());
-			this->toolStripSeparator3 = (gcnew System::Windows::Forms::ToolStripSeparator());
-			this->toolStripButton4 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->toolStrip2->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -267,6 +268,21 @@ namespace ColorBackgroundRemover {
 			this->toolStripButton3->Text = L"toolStripButton3";
 			this->toolStripButton3->Click += gcnew System::EventHandler(this, &GUI::toolStripButton3_Click);
 			// 
+			// toolStripSeparator3
+			// 
+			this->toolStripSeparator3->Name = L"toolStripSeparator3";
+			this->toolStripSeparator3->Size = System::Drawing::Size(6, 27);
+			// 
+			// toolStripButton4
+			// 
+			this->toolStripButton4->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripButton4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripButton4.Image")));
+			this->toolStripButton4->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton4->Name = L"toolStripButton4";
+			this->toolStripButton4->Size = System::Drawing::Size(24, 24);
+			this->toolStripButton4->Text = L"toolStripButton4";
+			this->toolStripButton4->Click += gcnew System::EventHandler(this, &GUI::toolStripButton4_Click);
+			// 
 			// label2
 			// 
 			this->label2->Location = System::Drawing::Point(151, 25);
@@ -345,16 +361,6 @@ namespace ColorBackgroundRemover {
 			this->label7->Text = L"Threads";
 			this->label7->Click += gcnew System::EventHandler(this, &GUI::label7_Click);
 			// 
-			// comboBox2
-			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(7) { L"1", L"2", L"4", L"8", L"16", L"32", L"64" });
-			this->comboBox2->Location = System::Drawing::Point(844, 275);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(145, 21);
-			this->comboBox2->TabIndex = 12;
-			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &GUI::comboBox2_SelectedIndexChanged);
-			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
@@ -422,21 +428,6 @@ namespace ColorBackgroundRemover {
 			this->splitter1->TabIndex = 19;
 			this->splitter1->TabStop = false;
 			// 
-			// toolStripSeparator3
-			// 
-			this->toolStripSeparator3->Name = L"toolStripSeparator3";
-			this->toolStripSeparator3->Size = System::Drawing::Size(6, 27);
-			// 
-			// toolStripButton4
-			// 
-			this->toolStripButton4->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
-			this->toolStripButton4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripButton4.Image")));
-			this->toolStripButton4->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->toolStripButton4->Name = L"toolStripButton4";
-			this->toolStripButton4->Size = System::Drawing::Size(24, 24);
-			this->toolStripButton4->Text = L"toolStripButton4";
-			this->toolStripButton4->Click += gcnew System::EventHandler(this, &GUI::toolStripButton4_Click);
-			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
@@ -446,18 +437,26 @@ namespace ColorBackgroundRemover {
 			this->label10->TabIndex = 20;
 			this->label10->Text = L"Cutter";
 			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(844, 277);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(145, 20);
+			this->textBox3->TabIndex = 21;
+			this->textBox3->TextChanged += gcnew System::EventHandler(this, &GUI::textBox3_TextChanged);
+			// 
 			// GUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1015, 504);
+			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->splitter1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
-			this->Controls->Add(this->comboBox2);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
@@ -552,6 +551,7 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 			// Check if the left mouse button is clicked and the pipette is active
 			if (me->Button == System::Windows::Forms::MouseButtons::Left && isPipetteActive) {
 				// Get the clicked point
+				isCutterSelected = false;
 				System::Drawing::Point clickedPoint = me->Location;
 
 				// Get the color of the clicked point
@@ -641,7 +641,31 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 		// SprawdŸ wybrany jêzyk i przetwórz obraz odpowiedni¹ funkcj¹
 		if (selectedLanguage == "C++") {
-			ProcessImageCPP(static_cast<BYTE*>(bmpData->Scan0.ToPointer()), bmp->Width, bmp->Height, this->power,xVal,yVal, pointCounter);
+			//ProcessImageCPP(static_cast<BYTE*>(bmpData->Scan0.ToPointer()), bmp->Width, bmp->Height, this->power,xVal,yVal, pointCounter);
+			for (int y = 0; y < bmp->Height; ++y)
+			{
+				for (int x = 0; x < bmp->Width; ++x)
+				{
+					if (!IsPointInsidePolygon(x, y, xVal, yVal,this->pointCounter)) {
+						// Oblicz indeks bie¿¹cego piksela
+						int index = (y * bmp->Width + x) * 3;
+
+						// Wywo³aj funkcjê do przetwarzania pojedynczego piksela
+
+						BYTE* pixelData = static_cast<BYTE*>(bmpData->Scan0.ToPointer());
+
+						int red = pixelData[index];
+						int green = pixelData[index + 1];
+						int blue = pixelData[index + 2];
+						ProcessImageCPP2(red, green, blue, this->power);
+						pixelData[index] = static_cast<BYTE>(red);
+						pixelData[index + 1] = static_cast<BYTE>(green);
+						pixelData[index + 2] = static_cast<BYTE>(blue);
+					}
+
+				}
+			}
+
 		}
 		else if (selectedLanguage == "ASM") {
 			//ProcessImageAsm(static_cast<BYTE*>(bmpData->Scan0.ToPointer()), bmp->Width, bmp->Height, this->power);
@@ -656,12 +680,26 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		pictureBox1->Invalidate();
 	}
 }
+	   bool IsPointInsidePolygon(int x, int y, int xValues[32], int yValues[32], int pointcount)
+	   {
+		   bool inside = false;
 
+		   for (int i = 0, j = pointcount - 1; i < pointcount; j = i++) {
+			   if ((yValues[i] > y) != (yValues[j] > y) &&
+				   (x < (xValues[j] - xValues[i]) * (y - yValues[i]) / (yValues[j] - yValues[i]) + xValues[i])) {
+				   inside = !inside;
+			   }
+		   }
+
+		   return inside;
+	   }
 
 private: System::Void toolStripButton4_Click(System::Object^ sender, System::EventArgs^ e) {
 	isCutterSelected = !isCutterSelected;
 }
 
+private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 
 }

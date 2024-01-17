@@ -1,6 +1,12 @@
 section .text
 global ProcessImageASM
 
+
+; Program TYLKO DO WYGENEROWANIA PLIKU LIB
+
+
+
+
 ; Wejœcie:
 ; rdi - wskaŸnik na dane obrazu
 ; rsi - szerokoœæ obrazu w pikselach

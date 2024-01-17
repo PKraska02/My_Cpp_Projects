@@ -37,6 +37,13 @@ extern "C" __declspec(dllexport) void ProcessImageCPP(BYTE * imageData, int widt
         }
     }
 }
+extern "C" __declspec(dllexport) void ProcessImageCPP2(int& red, int& green, int& blue, int power) {
+
+    red = max(0, min(255, red - (red * (power * 0.01))));
+    green = max(0, min(255, green - (green * (power * 0.01))));
+    blue = max(0, min(255, blue - (blue * (power * 0.01))));
+}
+
 extern "C" __declspec(dllexport) bool IsPointInsidePolygon(int x, int y, int xValues[32], int yValues[32], int pointcount)
 {
     bool inside = false;
@@ -51,18 +58,4 @@ extern "C" __declspec(dllexport) bool IsPointInsidePolygon(int x, int y, int xVa
     return inside;
 }
 
-extern "C" __declspec(dllexport) COLORREF RemoveColor(COLORREF inputColor, int power)
-{
-    // Extract RGB components
-    int red = GetRValue(inputColor);
-    int green = GetGValue(inputColor);
-    int blue = GetBValue(inputColor);
 
-    // Modify RGB components based on power
-    red = max(0, min(255, red * ((power * 0.01))));
-    green = max(0, min(255, green * ((power * 0.01))));
-    blue = max(0, min(255, blue * ((power * 0.01))));
-
-    // Return the modified color
-    return RGB(red, green, blue);
-}
