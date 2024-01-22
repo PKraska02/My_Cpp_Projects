@@ -1,0 +1,11 @@
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\bin\Debug\ColorBackgroundRemover(Cpp_ASM).exe.config
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\bin\Debug\ColorBackgroundRemover(Cpp_ASM).exe
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\bin\Debug\ColorBackgroundRemover(Cpp_ASM).pdb
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\obj\Debug\ColorBackgroundRemover(Cpp_ASM).csproj.AssemblyReference.cache
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\obj\Debug\ColorBackgroundRemover(Cpp_ASM).csproj.SuggestedBindingRedirects.cache
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\obj\Debug\ColorBackgroundRemover_Cpp_ASM_.GUI.resources
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\obj\Debug\ColorBackgroundRemover_Cpp_ASM_.Properties.Resources.resources
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\obj\Debug\ColorBackgroundRemover(Cpp_ASM).csproj.GenerateResource.cache
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\obj\Debug\ColorBackgroundRemover(Cpp_ASM).csproj.CoreCompileInputs.cache
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\obj\Debug\ColorBackgroundRemover(Cpp_ASM).exe
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ColorBackgroundRemover(Cpp_ASM)\obj\Debug\ColorBackgroundRemover(Cpp_ASM).pdb
