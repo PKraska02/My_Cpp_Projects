@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <vector>
 #include <utility>  
+#include <fstream>
 namespace ColorBackgroundRemover {
 
 	using namespace System;
@@ -40,7 +41,7 @@ namespace ColorBackgroundRemover {
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 	private: System::Windows::Forms::ToolStrip^ toolStrip2;
 	private: System::Windows::Forms::ToolStripButton^ toolStripButton2;
 
@@ -66,7 +67,7 @@ namespace ColorBackgroundRemover {
 	private: System::Windows::Forms::ToolStripTextBox^ TextBoxPower;
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Panel^ panel1;
+
 	private: System::Windows::Forms::Button^ button2;
 
 
@@ -82,6 +83,11 @@ namespace ColorBackgroundRemover {
 		   int pointCounter = 0;
 		   array<int>^ xValues = gcnew array<int>(MaxPoints);
 	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Panel^ panel1;
+
+
+
 		   array<int>^ yValues = gcnew array<int>(MaxPoints);
 		   
 
@@ -141,7 +147,6 @@ namespace ColorBackgroundRemover {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(GUI::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->toolStrip2 = (gcnew System::Windows::Forms::ToolStrip());
 			this->toolStripButton2 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
@@ -163,13 +168,14 @@ namespace ColorBackgroundRemover {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->splitter1 = (gcnew System::Windows::Forms::Splitter());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->toolStrip2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -193,15 +199,6 @@ namespace ColorBackgroundRemover {
 			this->comboBox1->Size = System::Drawing::Size(134, 21);
 			this->comboBox1->TabIndex = 1;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &GUI::comboBox1_SelectedIndexChanged);
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Location = System::Drawing::Point(15, 8);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(613, 354);
-			this->pictureBox1->TabIndex = 2;
-			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &GUI::pictureBox1_Click);
 			// 
 			// toolStrip2
 			// 
@@ -399,15 +396,6 @@ namespace ColorBackgroundRemover {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &GUI::button1_Click);
 			// 
-			// panel1
-			// 
-			this->panel1->Controls->Add(this->pictureBox1);
-			this->panel1->Location = System::Drawing::Point(26, 54);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(641, 366);
-			this->panel1->TabIndex = 17;
-			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GUI::panel1_Paint);
-			// 
 			// button2
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -445,6 +433,25 @@ namespace ColorBackgroundRemover {
 			this->textBox3->TabIndex = 21;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &GUI::textBox3_TextChanged);
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(613, 354);
+			this->pictureBox1->TabIndex = 2;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &GUI::pictureBox1_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->pictureBox1);
+			this->panel1->Location = System::Drawing::Point(15, 54);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(613, 354);
+			this->panel1->TabIndex = 17;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &GUI::panel1_Paint);
+			// 
 			// GUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -472,9 +479,9 @@ namespace ColorBackgroundRemover {
 			this->Name = L"GUI";
 			this->Text = L"GUI";
 			this->Load += gcnew System::EventHandler(this, &GUI::GUI_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->toolStrip2->ResumeLayout(false);
 			this->toolStrip2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -558,6 +565,8 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 				System::Drawing::Color clickedColor = GetPixelColor(clickedPoint);
 
 				// Convert the color components to string for display
+
+				// TODO PODAÆ WYBRANY KOLOR DO FUNKCJI
 				String^ colorInfo = String::Format("R: {0}, G: {1}, B: {2}", clickedColor.R, clickedColor.G, clickedColor.B);
 
 				// Show the color information in a message box
@@ -611,20 +620,20 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	// Get the Graphics object for drawing
-	Graphics^ g = e->Graphics;
+	//Graphics^ g = e->Graphics;
 
 	// Set the color and width of the border
-	Pen^ borderPen = gcnew Pen(Color::Black, 6);
+	//Pen^ borderPen = gcnew Pen(Color::Black, 6);
 
 	// Draw a border around the PictureBox
-	g->DrawRectangle(borderPen, pictureBox1->Left - 1, pictureBox1->Top - 1, pictureBox1->Width + 1, pictureBox1->Height + 1);
+	//g->DrawRectangle(borderPen, pictureBox1->Left - 1, pictureBox1->Top - 1, pictureBox1->Width + 1, pictureBox1->Height + 1);
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	// Pobierz obraz z pictureBox1
 	System::Drawing::Bitmap^ bmp = dynamic_cast<System::Drawing::Bitmap^>(pictureBox1->Image);
+
 	array<System::Drawing::Point>^ myPointsArray;
 	myPointsArray = CreatePointArray(pointCounter);
-	//konwersja na zwyk³¹ tablicê aby przekazaæ do funkcji w dll
+
 	const int MaxPoints = 32;
 	int xVal[MaxPoints] = { 0 };
 	int yVal[MaxPoints] = { 0 };
@@ -633,38 +642,16 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		yVal[i] = myPointsArray[i].Y;
 	}
 
-
 	if (bmp != nullptr) {
 		// Pobierz dane obrazu
 		System::Drawing::Rectangle rect = System::Drawing::Rectangle(0, 0, bmp->Width, bmp->Height);
+		//System::Drawing::Rectangle rect = System::Drawing::Rectangle();
 		System::Drawing::Imaging::BitmapData^ bmpData = bmp->LockBits(rect, System::Drawing::Imaging::ImageLockMode::ReadWrite, bmp->PixelFormat);
+
 
 		// SprawdŸ wybrany jêzyk i przetwórz obraz odpowiedni¹ funkcj¹
 		if (selectedLanguage == "C++") {
-			//ProcessImageCPP(static_cast<BYTE*>(bmpData->Scan0.ToPointer()), bmp->Width, bmp->Height, this->power,xVal,yVal, pointCounter);
-			for (int y = 0; y < bmp->Height; ++y)
-			{
-				for (int x = 0; x < bmp->Width; ++x)
-				{
-					if (!IsPointInsidePolygon(x, y, xVal, yVal,this->pointCounter)) {
-						// Oblicz indeks bie¿¹cego piksela
-						int index = (y * bmp->Width + x) * 3;
-
-						// Wywo³aj funkcjê do przetwarzania pojedynczego piksela
-
-						BYTE* pixelData = static_cast<BYTE*>(bmpData->Scan0.ToPointer());
-
-						int red = pixelData[index];
-						int green = pixelData[index + 1];
-						int blue = pixelData[index + 2];
-						ProcessImageCPP2(red, green, blue, this->power);
-						pixelData[index] = static_cast<BYTE>(red);
-						pixelData[index + 1] = static_cast<BYTE>(green);
-						pixelData[index + 2] = static_cast<BYTE>(blue);
-					}
-
-				}
-			}
+			ProcessImageCPP(static_cast<BYTE*>(bmpData->Scan0.ToPointer()), panel1->Width, panel1->Height, this->power,xVal,yVal, pointCounter);
 
 		}
 		else if (selectedLanguage == "ASM") {
@@ -677,9 +664,11 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		bmp->UnlockBits(bmpData);
 
 		// Zaktualizuj pictureBox1 po przetworzeniu obrazu
-		pictureBox1->Invalidate();
+		//pictureBox1->Invalidate();
+		pictureBox1->Refresh();
 	}
-}
+}	
+
 	   bool IsPointInsidePolygon(int x, int y, int xValues[32], int yValues[32], int pointcount)
 	   {
 		   bool inside = false;
