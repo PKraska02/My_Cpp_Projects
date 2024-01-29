@@ -1,0 +1,1 @@
+C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ASMColorRemoverLIB\x64\Release\ASMColorRemoverLIB.dll

@@ -8,10 +8,10 @@
 #include <fstream>
 
 
-extern "C" __declspec(dllexport) void ProcessImageCPP(BYTE * imageData, int width, int height, int power, int xValues[32], int yValues[32], int pointcount, int new_red, int new_green, int new_blue)
+extern "C" __declspec(dllexport) void ProcessImageCPP(BYTE * imageData, int width, int height, int power, int xValues[32], int yValues[32], int pointcount, int new_red, int new_green, int new_blue,int y1)
 {
     // Iterate through each pixel in the image
-    for (int y = 5; y < height-5; ++y)
+    for (int y = 5; y < y1; ++y)
     {
         for (int x = 5; x < width-5; ++x)
         {
@@ -44,28 +44,14 @@ extern "C" __declspec(dllexport) bool IsPointInsidePolygon(int x, int y, int xVa
             (x < (xValues[j] - xValues[i]) * static_cast<double>(y - yValues[i]) / static_cast<double>(yValues[j] - yValues[i]) + xValues[i])) {
             count += 1;
         }
-        /*
-        if (
-            ((yValues[i] > y) != (yValues[j] > y)) &&
-            x < xValues[i] + (((y - yValues[i]) / (yValues[j] - yValues[i])) * (xValues[j] - xValues[i]))
-            ) {
-            count += 1;
-        }
-        */
+
     }
 
     inside = (count % 2 == 1);
     return inside;
 }
 
-/*
-extern "C" __declspec(dllexport) void ProcessImageCPP2(int& red, int& green, int& blue, int power, int new_red, int new_green, int new_blue) {
 
-    red = max(0, min(255, red - (new_red * (power * 0.01))));
-    green = max(0, min(255, green - (new_green * (power * 0.01))));
-    blue = max(0, min(255, blue - (new_blue * (power * 0.01))));
-}
-*/
 
 
 

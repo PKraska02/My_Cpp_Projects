@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -17,7 +18,7 @@ namespace ColorBackgroundRemover_Cpp_ASM_
     public partial class GUI : Form
     {
         private OpenFileDialog openFileDialog1 = new OpenFileDialog();
-        private byte[] imageData; // Dane obrazu
+        //private byte[] imageData; // Dane obrazu
         private int[] xValues;    // Tablica xValues
         private int[] yValues;
         private int power = 0;
@@ -29,16 +30,17 @@ namespace ColorBackgroundRemover_Cpp_ASM_
         private string selectedLanguage;
         private int new_red;
         private int new_green;
-        private int new_blue;   
+        private int new_blue;
+        private int threads;
         Color clickedColor;
-        [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Release\ASMColorRemoverLIB.dll")]
-        static extern void ProcessImageASM();
+        [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ASMColorRemoverLIB\x64\Release\ASMColorRemoverLIB.dll")]
+        static extern void ProcessImageASM(float[] pixelValues, float[] adjustpixels);
         [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Release\CPPColorRemoverLIB.dll")]
-        static extern void ProcessImageCPP(byte[] imageData, int width, int height, int power, int[] xValues, int[] yValues, int pointcount,int new_red,int new_green, int new_blue);
+        static extern void ProcessImageCPP(byte[] imageData, int width, int height, int power, int[] xValues, int[] yValues, int pointcount, int new_red, int new_green, int new_blue, int y1);
         public GUI()
         {
             InitializeComponent();
-            imageData = null; // Tutaj możesz zainicjować dane obrazu
+            //imageData = null; // Tutaj możesz zainicjować dane obrazu
             xValues = new int[32]; // Tutaj możesz zainicjować tablicy xValues
             yValues = new int[32];
             for (int i = 0; i < 32; i++)
@@ -89,7 +91,7 @@ namespace ColorBackgroundRemover_Cpp_ASM_
                 clickedColor = GetPixelColor(clickedPoint);
                 new_red = clickedColor.R;
                 new_green = clickedColor.G;
-                new_blue = clickedColor.B;  
+                new_blue = clickedColor.B;
 
                 // Convert the color components to string for display
                 string colorInfo = $"R: {clickedColor.R}, G: {clickedColor.G}, B: {clickedColor.B}";
@@ -103,7 +105,7 @@ namespace ColorBackgroundRemover_Cpp_ASM_
                 // Update label based on pipette activation state
                 pippeteActivationStatus.Text = isPipetteOn ? "Pipette activated" : "Pipette deactivated";
             }
-           
+
         }
         private Color GetPixelColor(Point point)
         {
@@ -118,12 +120,12 @@ namespace ColorBackgroundRemover_Cpp_ASM_
         }
         private void mainPanel_Paint(object sender, PaintEventArgs e)
         {
-  
+
         }
 
         private void pippeteLabel_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -198,6 +200,31 @@ namespace ColorBackgroundRemover_Cpp_ASM_
 
         private void runButton_Click(object sender, EventArgs e)
         {
+            if (int.TryParse(textBox3.Text, out int selectedThreads))
+            {
+                // Sprawdź, czy liczba wątków jest większa niż zero
+                if (selectedThreads > 0 && selectedThreads <= 64)
+                {
+                    threads = selectedThreads;
+                }
+                else
+                {
+                    MessageBox.Show("Liczba wątków musi być większa niż zero.");
+                    // Tutaj możesz ewentualnie ustawić domyślną wartość liczby wątków, na przykład 1.
+                    textBox3.Text = "1";
+                    int.TryParse(textBox3.Text, out selectedThreads);
+                    threads = selectedThreads;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Podana wartość nie jest liczbą całkowitą.");
+                // Tutaj możesz ewentualnie ustawić domyślną wartość liczby wątków, na przykład 1.
+                textBox3.Text = "1";
+                int.TryParse(textBox3.Text, out selectedThreads);
+                threads = selectedThreads;
+            }
+
             if (mainPictureBox.Image == null)
             {
                 MessageBox.Show("Load an image first.");
@@ -212,42 +239,119 @@ namespace ColorBackgroundRemover_Cpp_ASM_
             BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
                                                     ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
-            // Przygotuj wskaźnik do pierwszego piksela
             IntPtr ptr = bitmapData.Scan0;
 
-            // Oblicz rozmiar danych pikseli w bajtach
             int bytes = Math.Abs(bitmapData.Stride) * bitmap.Height;
 
-            // Przygotuj bufor danych
             byte[] imageData = new byte[bytes];
 
-            // Skopiuj dane z obrazu do bufora
             Marshal.Copy(ptr, imageData, 0, bytes);
 
-            // Sprawdź wybrany język w ComboBoxie
             if (selectedLanguage == "C++")
             {
-                // Wywołaj funkcję C++
-                ProcessImageCPP(imageData, width, height, power, xValues, yValues, pointCounter,new_red,new_green,new_blue);
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                int chunkSize = height / selectedThreads;
+
+                // Wywołaj funkcję C++ wielowątkowo
+                Parallel.For(0, selectedThreads, threadIndex =>
+                {
+                    int startY = threadIndex * chunkSize;
+                    int endY = (threadIndex == selectedThreads - 1) ? height : startY + chunkSize;
+
+                    for (int y = startY; y < endY; y++)
+                    {
+                        ProcessImageCPP(imageData, width, height, power, xValues, yValues, pointCounter, new_red, new_green, new_blue, y);
+                    }
+                });
+                stopwatch.Stop();
+                TimeSpan elapsedTime = stopwatch.Elapsed;
+                string v = elapsedTime.TotalMilliseconds.ToString("0.###");
+                textBox1.Text = v;
             }
             else if (selectedLanguage == "ASM")
             {
-                // Wywołaj funkcję ASM
-                ProcessImageASM(int & red, int & green, int & blue, int power, int new_red, int new_green, int new_blue);
+                float[] tempPixelValues = new float[3];
+                float[] pixelAdjuster = new float[3];
+                pixelAdjuster[0] = new_red;
+                pixelAdjuster[1] = new_green;
+                pixelAdjuster[2] = new_blue;
+                byte[] imageData2 = new byte[bytes];
+                int[] index = new int[bytes];
+                int c = 0;
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                for (int y = 0; y < height; ++y)
+                {
+                    for (int x = 0; x < width; ++x)
+                    {
+                        if (!IsPointInsidePolygon(x, y, xValues, yValues, pointCounter))
+                        {
+                            int startIndex = (y * width + x) * 3;
+                            imageData2[startIndex] = imageData[startIndex];
+                            imageData2[startIndex + 1] = imageData[startIndex + 1];
+                            imageData2[startIndex + 2] = imageData[startIndex + 2];
+                            index[c] = startIndex;
+                            c++;
+                        }
+                    }
+                }
+                int chunkSize = imageData2.Length / selectedThreads;
+
+                Parallel.For(0, selectedThreads, threadIndex =>
+                {
+                    int start = threadIndex * chunkSize;
+                    int end = (threadIndex == selectedThreads - 1) ? imageData2.Length : start + chunkSize;
+
+                    for (int i = start; i < end; i += 3)
+                    {
+                        tempPixelValues[0] = imageData2[i];
+                        tempPixelValues[1] = imageData2[i + 1];
+                        tempPixelValues[2] = imageData2[i + 2];
+
+                        ProcessImageASM(tempPixelValues, pixelAdjuster);
+
+                        imageData2[i] = (byte)tempPixelValues[0];
+                        imageData2[i + 1] = (byte)tempPixelValues[1];
+                        imageData2[i + 2] = (byte)tempPixelValues[2];
+                        imageData[index[i]] = imageData2[i];
+                        imageData[index[i] + 1] = imageData2[i + 1];
+                        imageData[index[i] + 2] = imageData2[i + 2];
+                    }
+
+                });
+                stopwatch.Stop();
+                TimeSpan elapsedTime = stopwatch.Elapsed;
+                string v = elapsedTime.TotalMilliseconds.ToString("0.###");
+                textBox2.Text = v;
+
+                Marshal.Copy(imageData, 0, ptr, bytes);
+
+                bitmap.UnlockBits(bitmapData);
+
+                mainPictureBox.Image = bitmap;
+
+                mainPictureBox.Invalidate();
+
+            }
+        }
+
+        public static bool IsPointInsidePolygon(int x, int y, int[] xValues, int[] yValues, int pointCount)
+        {
+            bool inside = false;
+            int count = 0;
+
+            for (int i = 0, j = pointCount - 1; i < pointCount; j = i++)
+            {
+                if ((yValues[i] > y) != (yValues[j] > y) &&
+                    (x < (xValues[j] - xValues[i]) * (double)(y - yValues[i]) / (double)(yValues[j] - yValues[i]) + xValues[i]))
+                {
+                    count += 1;
+                }
             }
 
-            // Skopiuj zmodyfikowane dane z powrotem do obrazu
-            Marshal.Copy(imageData, 0, ptr, bytes);
-
-            // Zwolnij zasoby
-            bitmap.UnlockBits(bitmapData);
-
-            // Przypisz zmodyfikowany obraz z powrotem do PictureBox
-            mainPictureBox.Image = bitmap;
-
-            // Odśwież PictureBox
-            mainPictureBox.Invalidate();
-
+            inside = (count % 2 == 1);
+            return inside;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

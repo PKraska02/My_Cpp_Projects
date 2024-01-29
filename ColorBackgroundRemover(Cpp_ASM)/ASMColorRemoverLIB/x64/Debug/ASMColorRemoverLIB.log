@@ -1,4 +1,5 @@
 ﻿  Assembling ASMColorRemover.asm...
+  LINK : nie znaleziono elementu C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.dll ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
      Trwa tworzenie biblioteki C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.lib i obiektu C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.exp
 ASMColorRemoverLIB.exp : warning LNK4070: /OUT: dyrektywa ASMColorRemover.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.dll”; dyrektywa została zignorowana
   ASMColorRemoverLIB.vcxproj -> C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.dll
