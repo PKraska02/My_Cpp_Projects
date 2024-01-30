@@ -1,64 +1,6 @@
 ﻿  Assembling ASMColorRemover.asm...
-ASMColorRemover.asm(2): error A2008: syntax error : section
-ASMColorRemover.asm(3): error A2034: must be in segment block
-ASMColorRemover.asm(4): error A2034: must be in segment block
-ASMColorRemover.asm(5): error A2034: must be in segment block
-ASMColorRemover.asm(6): error A2034: must be in segment block
-ASMColorRemover.asm(8): error A2008: syntax error : section
-ASMColorRemover.asm(9): error A2008: syntax error : global
-ASMColorRemover.asm(10): error A2008: syntax error : in directive
-ASMColorRemover.asm(12): error A2034: must be in segment block
-ASMColorRemover.asm(14): error A2034: must be in segment block
-ASMColorRemover.asm(15): error A2034: must be in segment block
-ASMColorRemover.asm(18): error A2034: must be in segment block
-ASMColorRemover.asm(19): error A2034: must be in segment block
-ASMColorRemover.asm(20): error A2034: must be in segment block
-ASMColorRemover.asm(23): error A2034: must be in segment block
-ASMColorRemover.asm(24): error A2034: must be in segment block
-ASMColorRemover.asm(25): error A2034: must be in segment block
-ASMColorRemover.asm(26): error A2034: must be in segment block
-ASMColorRemover.asm(27): error A2034: must be in segment block
-ASMColorRemover.asm(28): error A2034: must be in segment block
-ASMColorRemover.asm(29): error A2034: must be in segment block
-ASMColorRemover.asm(30): error A2034: must be in segment block
-ASMColorRemover.asm(31): error A2008: syntax error : .
-ASMColorRemover.asm(32): error A2034: must be in segment block
-ASMColorRemover.asm(33): error A2034: must be in segment block
-ASMColorRemover.asm(34): error A2008: syntax error : .
-ASMColorRemover.asm(35): error A2034: must be in segment block
-ASMColorRemover.asm(36): error A2008: syntax error : .
-ASMColorRemover.asm(37): error A2034: must be in segment block
-ASMColorRemover.asm(38): error A2034: must be in segment block
-ASMColorRemover.asm(39): error A2034: must be in segment block
-ASMColorRemover.asm(40): error A2034: must be in segment block
-ASMColorRemover.asm(41): error A2034: must be in segment block
-ASMColorRemover.asm(42): error A2034: must be in segment block
-ASMColorRemover.asm(43): error A2034: must be in segment block
-ASMColorRemover.asm(44): error A2034: must be in segment block
-ASMColorRemover.asm(45): error A2008: syntax error : .
-ASMColorRemover.asm(46): error A2034: must be in segment block
-ASMColorRemover.asm(47): error A2034: must be in segment block
-ASMColorRemover.asm(48): error A2008: syntax error : .
-ASMColorRemover.asm(49): error A2034: must be in segment block
-ASMColorRemover.asm(50): error A2008: syntax error : .
-ASMColorRemover.asm(51): error A2034: must be in segment block
-ASMColorRemover.asm(52): error A2034: must be in segment block
-ASMColorRemover.asm(53): error A2034: must be in segment block
-ASMColorRemover.asm(54): error A2034: must be in segment block
-ASMColorRemover.asm(55): error A2034: must be in segment block
-ASMColorRemover.asm(56): error A2034: must be in segment block
-ASMColorRemover.asm(57): error A2034: must be in segment block
-ASMColorRemover.asm(58): error A2034: must be in segment block
-ASMColorRemover.asm(59): error A2008: syntax error : .
-ASMColorRemover.asm(60): error A2034: must be in segment block
-ASMColorRemover.asm(61): error A2034: must be in segment block
-ASMColorRemover.asm(62): error A2008: syntax error : .
-ASMColorRemover.asm(63): error A2034: must be in segment block
-ASMColorRemover.asm(64): error A2008: syntax error : .
-ASMColorRemover.asm(66): error A2034: must be in segment block
-ASMColorRemover.asm(67): error A2034: must be in segment block
-ASMColorRemover.asm(68): error A2034: must be in segment block
-ASMColorRemover.asm(71): error A2034: must be in segment block
-ASMColorRemover.asm(72): error A2034: must be in segment block
-ASMColorRemover.asm(73): error A2034: must be in segment block
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: Polecenie ml64.exe /c /nologo /Zi /Fo"x64\Release\ASMColorRemover.obj" /W3 /errorReport:prompt  /TaASMColorRemover.asm zostało zakończone; kod błędu: 1.
+     Trwa tworzenie biblioteki C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.lib i obiektu C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.exp
+ASMColorRemoverLIB.exp : warning LNK4070: /OUT: dyrektywa ASMColorRemover.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.dll”; dyrektywa została zignorowana
+  LINK : określono opcję /LTCG, lecz generowanie kodu nie było wymagane; usuń opcję /LTCG z wiersza polecenia konsolidatora w celu podwyższenia wydajności konsolidatora
+ASMColorRemoverLIB.exp : warning LNK4070: /OUT: dyrektywa ASMColorRemover.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.dll”; dyrektywa została zignorowana
+  ASMColorRemoverLIB.vcxproj -> C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.dll

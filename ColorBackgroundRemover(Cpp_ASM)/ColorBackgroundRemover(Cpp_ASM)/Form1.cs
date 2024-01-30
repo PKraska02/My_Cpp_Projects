@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,10 +33,12 @@ namespace ColorBackgroundRemover_Cpp_ASM_
         private int new_green;
         private int new_blue;   
         Color clickedColor;
+        private int threads;
+
         [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Release\ASMColorRemoverLIB.dll")]
         static extern void ProcessImageASM();
         [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Release\CPPColorRemoverLIB.dll")]
-        static extern void ProcessImageCPP(byte[] imageData, int width, int height, int power, int[] xValues, int[] yValues, int pointcount,int new_red,int new_green, int new_blue);
+        static extern void ProcessImageCPP(byte[] imageData, int width, int height, int power, int[] xValues, int[] yValues, int pointcount,int new_red,int new_green, int new_blue,int y1,int y2);
         public GUI()
         {
             InitializeComponent();
@@ -198,6 +202,30 @@ namespace ColorBackgroundRemover_Cpp_ASM_
 
         private void runButton_Click(object sender, EventArgs e)
         {
+            if (int.TryParse(textBox3.Text, out int selectedThreads))
+            {
+                // Sprawdź, czy liczba wątków jest większa niż zero
+                if (selectedThreads > 0 && selectedThreads <= 64)
+                {
+                    threads = selectedThreads;
+                }
+                else
+                {
+                    MessageBox.Show("Liczba wątków musi być większa niż zero.");
+                    // Tutaj możesz ewentualnie ustawić domyślną wartość liczby wątków, na przykład 1.
+                    textBox3.Text = "1";
+                    int.TryParse(textBox3.Text, out selectedThreads);
+                    threads = selectedThreads;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Podana wartość nie jest liczbą całkowitą.");
+                // Tutaj możesz ewentualnie ustawić domyślną wartość liczby wątków, na przykład 1.
+                textBox3.Text = "1";
+                int.TryParse(textBox3.Text, out selectedThreads);
+                threads = selectedThreads;
+            }
             if (mainPictureBox.Image == null)
             {
                 MessageBox.Show("Load an image first.");
@@ -227,13 +255,31 @@ namespace ColorBackgroundRemover_Cpp_ASM_
             // Sprawdź wybrany język w ComboBoxie
             if (selectedLanguage == "C++")
             {
-                // Wywołaj funkcję C++
-                ProcessImageCPP(imageData, width, height, power, xValues, yValues, pointCounter,new_red,new_green,new_blue);
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                int chunkSize = height / selectedThreads;
+
+                // Wywołaj funkcję C++ wielowątkowo
+                Parallel.For(0, selectedThreads, threadIndex =>
+                {
+                    int startY = threadIndex * chunkSize;
+                    int endY = (threadIndex == selectedThreads - 1) ? height : startY + chunkSize;
+
+ 
+
+                        ProcessImageCPP(imageData, width, height, power, xValues, yValues, pointCounter, new_red, new_green, new_blue, startY,endY);
+  
+                });
+                stopwatch.Stop();
+                TimeSpan elapsedTime = stopwatch.Elapsed;
+                string v = elapsedTime.TotalMilliseconds.ToString("0.###");
+                textBox1.Text = v;
+                //ProcessImageCPP(imageData, width, height, power, xValues, yValues, pointCounter,new_red,new_green,new_blue);
             }
             else if (selectedLanguage == "ASM")
             {
                 // Wywołaj funkcję ASM
-                ProcessImageASM(int & red, int & green, int & blue, int power, int new_red, int new_green, int new_blue);
+                //ProcessImageASM(int & red, int & green, int & blue, int power, int new_red, int new_green, int new_blue);
             }
 
             // Skopiuj zmodyfikowane dane z powrotem do obrazu
