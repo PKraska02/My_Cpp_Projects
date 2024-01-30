@@ -1,5 +1,5 @@
-﻿  Assembling ASMColorRemover.asm...
-  LINK : nie znaleziono elementu C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.dll ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
-     Trwa tworzenie biblioteki C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.lib i obiektu C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.exp
-ASMColorRemoverLIB.exp : warning LNK4070: /OUT: dyrektywa ASMColorRemover.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.dll”; dyrektywa została zignorowana
-  ASMColorRemoverLIB.vcxproj -> C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Debug\ASMColorRemoverLIB.dll
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Katalog Output nie kończy się ukośnikiem. To wystąpienie kompilacji doda ukośnik, ponieważ jest on niezbędny, aby możliwa była poprawna ocena katalogu Output.
+  Assembling ASMColorRemover.asm...
+     Trwa tworzenie biblioteki .\x64\Release\ASMColorRemoverLIB.lib i obiektu .\x64\Release\ASMColorRemoverLIB.exp
+ASMColorRemoverLIB.exp : warning LNK4070: /OUT: dyrektywa ASMColorRemover.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „.\x64\Release\ASMColorRemoverLIB.dll”; dyrektywa została zignorowana
+  ASMColorRemoverLIB.vcxproj -> C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ASMColorRemoverLIB\x64\Release\ASMColorRemoverLIB.dll

@@ -109,5 +109,11 @@
   <ItemGroup>
     <Analyzer Include="..\x64\Release\CPPColorRemoverLIB.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CPPColorRemoverLIB\CPPColorRemoverLIB.vcxproj">
+      <Project>{cfbde5a3-596b-4685-93a7-328d9a65ba3d}</Project>
+      <Name>CPPColorRemoverLIB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

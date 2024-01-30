@@ -35,7 +35,9 @@ namespace ColorBackgroundRemover_Cpp_ASM_
         Color clickedColor;
         [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ASMColorRemoverLIB\x64\Release\ASMColorRemoverLIB.dll")]
         static extern void ProcessImageASM(float[] pixelValues, float[] adjustpixels);
-        [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Release\CPPColorRemoverLIB.dll")]
+
+        //[DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Debug\CPPColorRemoverLIB.dll")]
+          [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Debug\CPPColorRemoverLIB.dll")] 
         static extern void ProcessImageCPP(byte[] imageData, int width, int height, int power, int[] xValues, int[] yValues, int pointcount, int new_red, int new_green, int new_blue, int y1);
         public GUI()
         {

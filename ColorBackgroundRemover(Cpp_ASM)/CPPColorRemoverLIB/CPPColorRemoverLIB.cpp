@@ -1,4 +1,3 @@
-
 #include "pch.h" 
 #include <utility>
 #include <limits.h>
@@ -10,10 +9,26 @@
 
 extern "C" __declspec(dllexport) void ProcessImageCPP(BYTE * imageData, int width, int height, int power, int xValues[32], int yValues[32], int pointcount, int new_red, int new_green, int new_blue,int y1)
 {
-    // Iterate through each pixel in the image
-    for (int y = 5; y < y1; ++y)
+    /*std::ofstream file("C:/Users/Piotr/Desktop/test.txt", std::ios_base::app);
+
+    // SprawdŸ, czy plik zosta³ poprawnie otwarty
+    if (file.is_open())
     {
-        for (int x = 5; x < width-5; ++x)
+        // Zapisz "Wszed³em!" do pliku
+        file << "Wszed³em!" << std::endl;
+
+        // Zamknij plik
+        file.close();
+    }
+    else
+    {
+        // W przypadku b³êdu otwarcia pliku, wypisz komunikat o b³êdzie
+        std::cerr << "Nie mo¿na otworzyæ pliku 'test.txt'!" << std::endl;
+    }*/
+    // Iterate through each pixel in the image
+    for (int y = 0; y < y1; ++y)
+    {
+        for (int x = 4; x < width-4; ++x)
         {
             // Calculate the index of the current pixel
             int index = (y * width + x) * 3;
