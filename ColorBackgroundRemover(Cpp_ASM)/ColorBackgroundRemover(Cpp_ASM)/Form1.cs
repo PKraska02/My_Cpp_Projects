@@ -35,8 +35,8 @@ namespace ColorBackgroundRemover_Cpp_ASM_
         Color clickedColor;
         private int threads;
 
-        [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Release\ASMColorRemoverLIB.dll")]
-        static extern void ProcessImageASM();
+        [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(C++,ASM)\ColorBackgroundRemover\x64\Release\ASMColorRemoverLIB.dll")]
+        static extern void ProcessImageASM(float[] pixelValues, float[] adjustpixels);
         [DllImport(@"C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Release\CPPColorRemoverLIB.dll")]
         static extern void ProcessImageCPP(byte[] imageData, int width, int height, int power, int[] xValues, int[] yValues, int pointcount,int new_red,int new_green, int new_blue,int y1,int y2);
         public GUI()
@@ -265,10 +265,10 @@ namespace ColorBackgroundRemover_Cpp_ASM_
                     int startY = threadIndex * chunkSize;
                     int endY = (threadIndex == selectedThreads - 1) ? height : startY + chunkSize;
 
- 
 
-                        ProcessImageCPP(imageData, width, height, power, xValues, yValues, pointCounter, new_red, new_green, new_blue, startY,endY);
-  
+
+                    ProcessImageCPP(imageData, width, height, power, xValues, yValues, pointCounter, new_red, new_green, new_blue, startY, endY);
+
                 });
                 stopwatch.Stop();
                 TimeSpan elapsedTime = stopwatch.Elapsed;
@@ -278,9 +278,63 @@ namespace ColorBackgroundRemover_Cpp_ASM_
             }
             else if (selectedLanguage == "ASM")
             {
-                // Wywołaj funkcję ASM
-                //ProcessImageASM(int & red, int & green, int & blue, int power, int new_red, int new_green, int new_blue);
+                float[] tempPixelValues = new float[3];
+                float[] pixelAdjuster = new float[3];
+                pixelAdjuster[0] = new_red;
+                pixelAdjuster[1] = new_green;
+                pixelAdjuster[2] = new_blue;
+                byte[] imageData2 = new byte[bytes];
+                int[] index = new int[bytes];
+                int c = 0;
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                for (int y = 0; y < height; ++y)
+                {
+                    for (int x = 0; x < width; ++x)
+                    {
+                        if (!IsPointInsidePolygon(x, y, xValues, yValues, pointCounter))
+                        {
+                            int startIndex = (y * width + x) * 3;
+                            imageData2[startIndex] = imageData[startIndex];
+                            imageData2[startIndex + 1] = imageData[startIndex + 1];
+                            imageData2[startIndex + 2] = imageData[startIndex + 2];
+                            index[c] = startIndex;
+                            c++;
+                        }
+                    }
+                }
+                int chunkSize = imageData2.Length / selectedThreads;
+
+                Parallel.For(0, selectedThreads, threadIndex =>
+                {
+                    int start = threadIndex * chunkSize;
+                    int end = (threadIndex == selectedThreads - 1) ? imageData2.Length : start + chunkSize;
+
+                    for (int i = start; i < end; i += 3)
+                    {
+                        tempPixelValues[0] = imageData2[i];
+                        tempPixelValues[1] = imageData2[i + 1];
+                        tempPixelValues[2] = imageData2[i + 2];
+
+                        ProcessImageASM(tempPixelValues, pixelAdjuster);
+
+                        imageData2[i] = (byte)tempPixelValues[0];
+                        imageData2[i + 1] = (byte)tempPixelValues[1];
+                        imageData2[i + 2] = (byte)tempPixelValues[2];
+                        imageData[index[i]] = imageData2[i];
+                        imageData[index[i] + 1] = imageData2[i + 1];
+                        imageData[index[i] + 2] = imageData2[i + 2];
+                    }
+
+                });
+                stopwatch.Stop();
+                TimeSpan elapsedTime = stopwatch.Elapsed;
+                string v = elapsedTime.TotalMilliseconds.ToString("0.###");
+                textBox2.Text = v;
             }
+        
+
+            
 
             // Skopiuj zmodyfikowane dane z powrotem do obrazu
             Marshal.Copy(imageData, 0, ptr, bytes);
@@ -294,6 +348,23 @@ namespace ColorBackgroundRemover_Cpp_ASM_
             // Odśwież PictureBox
             mainPictureBox.Invalidate();
 
+        }
+        public static bool IsPointInsidePolygon(int x, int y, int[] xValues, int[] yValues, int pointCount)
+        {
+            bool inside = false;
+            int count = 0;
+
+            for (int i = 0, j = pointCount - 1; i < pointCount; j = i++)
+            {
+                if ((yValues[i] > y) != (yValues[j] > y) &&
+                    (x < (xValues[j] - xValues[i]) * (double)(y - yValues[i]) / (double)(yValues[j] - yValues[i]) + xValues[i]))
+                {
+                    count += 1;
+                }
+            }
+
+            inside = (count % 2 == 1);
+            return inside;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
