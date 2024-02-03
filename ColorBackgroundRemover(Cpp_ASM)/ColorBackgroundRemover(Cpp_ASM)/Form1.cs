@@ -278,13 +278,13 @@ namespace ColorBackgroundRemover_Cpp_ASM_
             }
             else if (selectedLanguage == "ASM")
             {
-                float[] tempPixelValues = new float[3];
                 float[] pixelAdjuster = new float[3];
-                pixelAdjuster[0] = new_red;
-                pixelAdjuster[1] = new_green;
-                pixelAdjuster[2] = new_blue;
+                pixelAdjuster[0] = (float)(new_red * (power * 0.01));
+                pixelAdjuster[1] = (float)(new_green * (power * 0.01));
+                pixelAdjuster[2] = (float)(new_blue * (power * 0.01));
                 byte[] imageData2 = new byte[bytes];
                 int[] index = new int[bytes];
+                int[] index2 = new int[bytes];
                 int c = 0;
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -299,38 +299,43 @@ namespace ColorBackgroundRemover_Cpp_ASM_
                             imageData2[startIndex + 1] = imageData[startIndex + 1];
                             imageData2[startIndex + 2] = imageData[startIndex + 2];
                             index[c] = startIndex;
+                            index2[startIndex] = startIndex;  // Zapisz indeks do index2
+                            index2[startIndex + 1] = startIndex + 1;
+                            index2[startIndex + 2] = startIndex + 2;
                             c++;
                         }
                     }
                 }
                 int chunkSize = imageData2.Length / selectedThreads;
 
-                Parallel.For(0, selectedThreads, threadIndex =>
-                {
-                    int start = threadIndex * chunkSize;
-                    int end = (threadIndex == selectedThreads - 1) ? imageData2.Length : start + chunkSize;
-
-                    for (int i = start; i < end; i += 3)
+                    Parallel.For(0, selectedThreads, threadIndex =>
                     {
-                        tempPixelValues[0] = imageData2[i];
-                        tempPixelValues[1] = imageData2[i + 1];
-                        tempPixelValues[2] = imageData2[i + 2];
+                        float[] tempPixelValues = new float[3];
+                        int start = threadIndex * chunkSize;
+                        int end = (threadIndex == selectedThreads - 1) ? imageData2.Length : start + chunkSize;
 
-                        ProcessImageASM(tempPixelValues, pixelAdjuster);
+                        for (int i = start; i < end; i += 3)
+                        {
+                            tempPixelValues[0] = imageData2[i];
+                            tempPixelValues[1] = imageData2[i + 1];
+                            tempPixelValues[2] = imageData2[i + 2];
 
-                        imageData2[i] = (byte)tempPixelValues[0];
-                        imageData2[i + 1] = (byte)tempPixelValues[1];
-                        imageData2[i + 2] = (byte)tempPixelValues[2];
-                        imageData[index[i]] = imageData2[i];
-                        imageData[index[i] + 1] = imageData2[i + 1];
-                        imageData[index[i] + 2] = imageData2[i + 2];
-                    }
+                            ProcessImageASM(tempPixelValues, pixelAdjuster);
 
-                });
-                stopwatch.Stop();
-                TimeSpan elapsedTime = stopwatch.Elapsed;
-                string v = elapsedTime.TotalMilliseconds.ToString("0.###");
-                textBox2.Text = v;
+                            imageData2[i] = (byte)tempPixelValues[0];
+                            imageData2[i + 1] = (byte)tempPixelValues[1];
+                            imageData2[i + 2] = (byte)tempPixelValues[2];
+                            imageData[index2[i]] = imageData2[i];  // Użyj index2 do indeksowania imageData
+                            imageData[index2[i] + 1] = imageData2[i + 1];
+                            imageData[index2[i] + 2] = imageData2[i + 2];
+
+                        }
+
+                    });
+                    stopwatch.Stop();
+                    TimeSpan elapsedTime = stopwatch.Elapsed;
+                    string v = elapsedTime.TotalMilliseconds.ToString("0.###");
+                    textBox2.Text = v;
             }
         
 
