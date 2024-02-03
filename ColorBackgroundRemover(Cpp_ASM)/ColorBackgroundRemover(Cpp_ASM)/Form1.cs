@@ -278,68 +278,58 @@ namespace ColorBackgroundRemover_Cpp_ASM_
             }
             else if (selectedLanguage == "ASM")
             {
+                float newred = (float)(new_red * (power * 0.01));
+                float newgreen = (float)(new_green * (power * 0.01));
+                float newblue = (float)(new_blue * (power * 0.01));
+
                 float[] pixelAdjuster = new float[3];
                 pixelAdjuster[0] = (float)(new_red * (power * 0.01));
                 pixelAdjuster[1] = (float)(new_green * (power * 0.01));
                 pixelAdjuster[2] = (float)(new_blue * (power * 0.01));
-                byte[] imageData2 = new byte[bytes];
-                int[] index = new int[bytes];
-                int[] index2 = new int[bytes];
-                int c = 0;
+
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                for (int y = 0; y < height; ++y)
+
+                int totalPixels = width * height;
+                int chunkSize = totalPixels / selectedThreads;
+
+                Parallel.For(0, selectedThreads, threadIndex =>
                 {
-                    for (int x = 0; x < width; ++x)
+                    float[] tempPixelValues = new float[3];
+                    int start = threadIndex * chunkSize;
+                    int end = (threadIndex == selectedThreads - 1) ? totalPixels : start + chunkSize;
+
+                    for (int i = start; i < end; i++)
                     {
+                        int x = i % width;
+                        int y = i / width;
+
                         if (!IsPointInsidePolygon(x, y, xValues, yValues, pointCounter))
                         {
-                            int startIndex = (y * width + x) * 3;
-                            imageData2[startIndex] = imageData[startIndex];
-                            imageData2[startIndex + 1] = imageData[startIndex + 1];
-                            imageData2[startIndex + 2] = imageData[startIndex + 2];
-                            index[c] = startIndex;
-                            index2[startIndex] = startIndex;  // Zapisz indeks do index2
-                            index2[startIndex + 1] = startIndex + 1;
-                            index2[startIndex + 2] = startIndex + 2;
-                            c++;
-                        }
-                    }
-                }
-                int chunkSize = imageData2.Length / selectedThreads;
+                            int startIndex = i * 3;
 
-                    Parallel.For(0, selectedThreads, threadIndex =>
-                    {
-                        float[] tempPixelValues = new float[3];
-                        int start = threadIndex * chunkSize;
-                        int end = (threadIndex == selectedThreads - 1) ? imageData2.Length : start + chunkSize;
-
-                        for (int i = start; i < end; i += 3)
-                        {
-                            tempPixelValues[0] = imageData2[i];
-                            tempPixelValues[1] = imageData2[i + 1];
-                            tempPixelValues[2] = imageData2[i + 2];
+                            tempPixelValues[0] = imageData[startIndex];
+                            tempPixelValues[1] = imageData[startIndex + 1];
+                            tempPixelValues[2] = imageData[startIndex + 2];
 
                             ProcessImageASM(tempPixelValues, pixelAdjuster);
 
-                            imageData2[i] = (byte)tempPixelValues[0];
-                            imageData2[i + 1] = (byte)tempPixelValues[1];
-                            imageData2[i + 2] = (byte)tempPixelValues[2];
-                            imageData[index2[i]] = imageData2[i];  // Użyj index2 do indeksowania imageData
-                            imageData[index2[i] + 1] = imageData2[i + 1];
-                            imageData[index2[i] + 2] = imageData2[i + 2];
-
+                            imageData[startIndex] = (byte)tempPixelValues[0];
+                            imageData[startIndex + 1] = (byte)tempPixelValues[1];
+                            imageData[startIndex + 2] = (byte)tempPixelValues[2];
                         }
+                    }
+                });
 
-                    });
-                    stopwatch.Stop();
-                    TimeSpan elapsedTime = stopwatch.Elapsed;
-                    string v = elapsedTime.TotalMilliseconds.ToString("0.###");
-                    textBox2.Text = v;
+                stopwatch.Stop();
+                TimeSpan elapsedTime = stopwatch.Elapsed;
+                string v = elapsedTime.TotalMilliseconds.ToString("0.###");
+                textBox2.Text = v;
             }
-        
 
-            
+
+
+
 
             // Skopiuj zmodyfikowane dane z powrotem do obrazu
             Marshal.Copy(imageData, 0, ptr, bytes);
