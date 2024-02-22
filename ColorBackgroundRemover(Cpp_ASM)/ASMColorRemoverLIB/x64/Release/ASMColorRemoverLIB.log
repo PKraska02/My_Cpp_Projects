@@ -1,7 +1,0 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Katalog Output nie kończy się ukośnikiem. To wystąpienie kompilacji doda ukośnik, ponieważ jest on niezbędny, aby możliwa była poprawna ocena katalogu Output.
-  Assembling ASMColorRemover.asm...
-     Trwa tworzenie biblioteki .\x64\Release\ASMColorRemoverLIB.lib i obiektu .\x64\Release\ASMColorRemoverLIB.exp
-ASMColorRemoverLIB.exp : warning LNK4070: /OUT: dyrektywa ASMColorRemover.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „.\x64\Release\ASMColorRemoverLIB.dll”; dyrektywa została zignorowana
-  LINK : określono opcję /LTCG, lecz generowanie kodu nie było wymagane; usuń opcję /LTCG z wiersza polecenia konsolidatora w celu podwyższenia wydajności konsolidatora
-ASMColorRemoverLIB.exp : warning LNK4070: /OUT: dyrektywa ASMColorRemover.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „.\x64\Release\ASMColorRemoverLIB.dll”; dyrektywa została zignorowana
-  ASMColorRemoverLIB.vcxproj -> C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\ASMColorRemoverLIB\x64\Release\ASMColorRemoverLIB.dll

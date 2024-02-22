@@ -1,8 +1,0 @@
-﻿  pch.cpp
-  CPPColorRemoverLIB.cpp
-  dllmain.cpp
-  Generowanie kodu...
-  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
-  CPPColorRemoverLIB.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
-     Trwa tworzenie biblioteki C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Debug\CPPColorRemoverLIB.lib i obiektu C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Debug\CPPColorRemoverLIB.exp
-  CPPColorRemoverLIB.vcxproj -> C:\Users\Piotr\source\repos\My_Cpp_Projects\ColorBackgroundRemover(Cpp_ASM)\x64\Debug\CPPColorRemoverLIB.dll
